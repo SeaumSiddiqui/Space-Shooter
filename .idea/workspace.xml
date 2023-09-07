@@ -4,41 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Space Shooter.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/asteroid/asteroid1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/asteroid/asteroid2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/asteroid/asteroid3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/dLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/dRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/uLeft.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/uRight.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/bombLeft/up.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/background.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/planet1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/planet2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/Asteroid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/Bomb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/Planet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/Rocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/SpaceObjects.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/Spaceship.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Space/temp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/util/Grid.java" afterDir="false" />
+    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="init push">
+      <change afterPath="$PROJECT_DIR$/res/asteroid/small-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fire/rocket1/shoot1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fire/rocket1/shoot2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player sprites/down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player sprites/static.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/player sprites/up.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Asteroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Rocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Rocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,9 +92,19 @@
       <option name="presentableId" value="Default" />
       <updated>1693509885043</updated>
     </task>
+    <task id="LOCAL-00001" summary="init push">
+      <created>1694099561402</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694099561402</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="init push" />
+    <option name="LAST_COMMIT_MESSAGE" value="init push" />
   </component>
 </project>

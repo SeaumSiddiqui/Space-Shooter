@@ -44,11 +44,6 @@ public class Asteroid extends SpaceObjects{
 
         if (!isExploded) {
             x -= speed;
-        } else {
-            deathCount++;
-            if (deathCount > 30) {
-                isDead = true;
-            }
         }
     }
 
@@ -58,7 +53,6 @@ public class Asteroid extends SpaceObjects{
             isDead = true;
         }
     }
-
 
     public void draw(Graphics2D g2D) {
 
@@ -70,6 +64,11 @@ public class Asteroid extends SpaceObjects{
 
             BufferedImage image = small2;
             g2D.drawImage(image, x, y, width / 2, height / 2, null);
+
+            deathCount++;
+            if (deathCount > 30) {
+                isDead = true;
+            }
         }
     }
 

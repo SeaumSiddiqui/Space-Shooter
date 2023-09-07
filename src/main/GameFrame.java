@@ -237,9 +237,9 @@ public class GameFrame extends JPanel implements Runnable {
         Graphics2D g2D = ((Graphics2D) g);
 
         // Background Image
-        //g2D.drawImage(background, 0, 0, screenWidth, screenHeight, this);
+        g2D.drawImage(background, 0, 0, screenWidth, screenHeight, this);
 
-        //planet.draw(g2D);
+        planet.draw(g2D);
 
         ship.drawSpaceship(g2D);
 
@@ -277,7 +277,7 @@ public class GameFrame extends JPanel implements Runnable {
 
                 rocketSpawn();// spawn rockets on key press
                 asteroidSpawn();// spawn asteroid
-                ufoSpawn();// spawn ufo's
+                //ufoSpawn();// spawn ufo's
                 checkRockets();// checks rocket collision
                 checkBomb();// checks boom collision
                 removeDead();// remove dead objects
