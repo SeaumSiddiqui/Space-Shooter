@@ -39,6 +39,7 @@ public class Rocket extends SpaceObjects {
             rocketY5 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/rocket2/charged5.png")));
             rocketY6 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/rocket2/charged6.png")));
 
+            // add all the secondary rocket images to an array
             rocketY = new BufferedImage[]{rocketY1, rocketY2, rocketY3, rocketY4, rocketY5};
 
         } catch (IOException e) {

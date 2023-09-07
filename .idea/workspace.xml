@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="init push">
-      <change afterPath="$PROJECT_DIR$/res/asteroid/small-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/rocket1/shoot1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/fire/rocket1/shoot2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player sprites/down.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player sprites/static.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/player sprites/up.png" afterDir="false" />
+    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="added images to make hit animation in asteroid class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/asteroid/small-2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Space/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Space/Rocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Rocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/SpaceObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/SpaceObjects.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,12 +94,21 @@
       <option name="project" value="LOCAL" />
       <updated>1694099561402</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updated Rocket class&#10;- added function for secondary fire animation&#10;status complete">
+      <created>1694103160450</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694103160454</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="init push" />
-    <option name="LAST_COMMIT_MESSAGE" value="init push" />
+    <MESSAGE value="updated Rocket class&#10;- added function for secondary fire animation&#10;status complete" />
+    <MESSAGE value="added images to make hit animation in asteroid class" />
+    <option name="LAST_COMMIT_MESSAGE" value="added images to make hit animation in asteroid class" />
   </component>
 </project>

@@ -42,8 +42,8 @@ public class SpaceObjects {
     BufferedImage ufo1, ufo2;
 
     // asteroid
-    BufferedImage asteroidImg1, asteroidImg2, asteroidImg3,
-                  small1, small2, small3;
+    BufferedImage asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5,
+                  hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8;
 
     public int getX() {
         return x;
