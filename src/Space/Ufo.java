@@ -158,7 +158,6 @@ public class Ufo extends SpaceObjects{
                 }
             }
 
-
         } else {
 
             int index = (sprite - 1);

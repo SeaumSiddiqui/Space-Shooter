@@ -1,12 +1,8 @@
 package main;
 
 import Space.*;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.*;
 import java.util.List;
 
@@ -22,10 +18,8 @@ public class GameFrame extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow; //640px
     public final int FPS = 60; //60 frames per second
 
-    BufferedImage background;
-
-    // planet
-    Planet planet = new Planet(0, 0, screenWidth, screenHeight, 0, 0, 0);
+    // Background
+    BackgroundSlideshow slideshow = new BackgroundSlideshow(this);
 
     // initialize KeyHandler
     KeyHandler keyH = new KeyHandler();
@@ -34,19 +28,17 @@ public class GameFrame extends JPanel implements Runnable {
     public Spaceship ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
                             tileSize, 999, 999, 8, keyH, this);
 
-
     // UFO
-    public final List<Ufo> ufo = new ArrayList<Ufo>();
+    public final List<Ufo> ufo = new ArrayList<>();
 
     // asteroids
-    public final List<Asteroid> asteroids = new ArrayList<Asteroid>();
+    public final List<Asteroid> asteroids = new ArrayList<>();
 
     // rocket
-    public final List<Rocket> rockets = new ArrayList<Rocket>();
+    public final List<Rocket> rockets = new ArrayList<>();
 
     // bomb
-    public final List<Bomb> bombs = new ArrayList<Bomb>();
-
+    public final List<Bomb> bombs = new ArrayList<>();
 
     Thread gameThread;
 
@@ -58,14 +50,6 @@ public class GameFrame extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
-
-        try {
-
-            background = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/space/background.png")));
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void startGame() {
@@ -77,8 +61,6 @@ public class GameFrame extends JPanel implements Runnable {
     public void update() {
 
         ship.move();
-
-        planet.move();
 
         for (SpaceObjects object: getObjects()) {
 
@@ -201,9 +183,6 @@ public class GameFrame extends JPanel implements Runnable {
 
     public void borderCollision() {
 
-        // planet remove from offscreen
-        planet.checkCollision();
-
         // prevent ship from going offscreen
         ship.checkCollision();
 
@@ -220,7 +199,6 @@ public class GameFrame extends JPanel implements Runnable {
         for (Ufo ufo: ufo) {
             ufo.checkCollision();
         }
-
     }
 
     public void removeDead() {
@@ -236,13 +214,13 @@ public class GameFrame extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2D = ((Graphics2D) g);
 
-        // Background Image
-        g2D.drawImage(background, 0, 0, screenWidth, screenHeight, this);
+        // draw background
+        slideshow.draw(g2D);
 
-        planet.draw(g2D);
-
+        // draw spaceship
         ship.drawSpaceship(g2D);
 
+        // draw other game objects
        for (SpaceObjects object: getObjects()) {
 
            try {
@@ -289,15 +267,7 @@ public class GameFrame extends JPanel implements Runnable {
         }
     }
 
-    public List<Asteroid> getAsteroids() {
-        return asteroids;
-    }
-
     public List<Rocket> getRockets() {
         return rockets;
-    }
-
-    public List<Bomb> getBombs() {
-        return bombs;
     }
 }
