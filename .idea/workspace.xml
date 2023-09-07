@@ -5,11 +5,49 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="added images to make hit animation in asteroid class">
+      <change afterPath="$PROJECT_DIR$/res/asteroid/asteroid4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/asteroid5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit/hit8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit1/hit8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit2/hit8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/asteroid/hit4/hit9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/ufo/left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/ufo/right.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/small-2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Space/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Asteroid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Rocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Rocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Space/SpaceObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/SpaceObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +89,7 @@
       <recent name="C:\Users\SUCCESS\IdeaProjects\Space Shooter\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\SUCCESS\IdeaProjects\Space Shooter\res\ufo\ufoHit" />
       <recent name="C:\Users\SUCCESS\IdeaProjects\Space Shooter\src\spaceObjects" />
       <recent name="C:\Users\SUCCESS\IdeaProjects\Space Shooter\res\space craft" />
     </key>
@@ -101,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694103160454</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added images to make hit animation in asteroid class">
+      <created>1694108258493</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694108258495</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

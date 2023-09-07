@@ -45,10 +45,10 @@ public class Asteroid extends SpaceObjects{
             hit7 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/hit/hit7.png")));
             hit8 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/hit/hit8.png")));
 
-            // add hit image in an array
+            // add hit images to an array
             hit = new BufferedImage[]{hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8};
 
-            // add asteroid image in an array
+            // add asteroid images to an array
             BufferedImage[] asteroidImg = {asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5};
             Random random = new Random();
             return asteroidImg[random.nextInt(asteroidImg.length)];
@@ -61,11 +61,12 @@ public class Asteroid extends SpaceObjects{
     public void move() {
 
         if (!isExploded) {
+
             x -= speed;
         } else {
             frameCount++;
 
-            if (frameCount > 5) {
+            if (frameCount >= 5) {
                 frameCount = 0;
                 sprite = (sprite % hit.length) + 1;
             }
@@ -93,7 +94,7 @@ public class Asteroid extends SpaceObjects{
 
             deathCount++;
             // frame count x num of image in hit array (5x8) = 40
-            if (deathCount > 40) {
+            if (deathCount >= 40) {
                 isDead = true;
             }
         }

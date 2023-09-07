@@ -40,6 +40,7 @@ public class SpaceObjects {
 
     // UFO
     BufferedImage ufo1, ufo2;
+    BufferedImage spark1, spark2, spark3, spark4;
 
     // asteroid
     BufferedImage asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5,

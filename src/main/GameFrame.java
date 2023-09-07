@@ -115,10 +115,10 @@ public class GameFrame extends JPanel implements Runnable {
         if (ufo.size() > 0) return;
 
         Random randomUfo = new Random();
-        double dropProbability = 0.0050;
+        double spawnProbability = 0.0050;
         // 0.50% chance of spawn in each iteration
         // 5 spawn in every 1000 iteration
-        if (randomUfo.nextDouble() < dropProbability) {
+        if (randomUfo.nextDouble() < spawnProbability) {
 
             ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2),tileSize, tileSize, 555, 333, 2, this));
             ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2 + tileSize),tileSize, tileSize, 555, 333, 2, this));
@@ -149,7 +149,7 @@ public class GameFrame extends JPanel implements Runnable {
                 keyH.lastYFireTime = currentTime;
             }
             // Optional: add an else condition to provide feedback that rocketY is on cooldown.
-            // will add cooldown animation later
+            // will add cooldown animation bar later
         }
         // reset cooldown flag
         if (keyH.yOnCooldown && currentTime - keyH.lastYFireTime >= keyH.cooldownDuration) {
@@ -277,7 +277,7 @@ public class GameFrame extends JPanel implements Runnable {
 
                 rocketSpawn();// spawn rockets on key press
                 asteroidSpawn();// spawn asteroid
-                //ufoSpawn();// spawn ufo's
+                ufoSpawn();// spawn ufo's
                 checkRockets();// checks rocket collision
                 checkBomb();// checks boom collision
                 removeDead();// remove dead objects
