@@ -255,7 +255,7 @@ public class GameFrame extends JPanel implements Runnable {
 
                 rocketSpawn();// spawn rockets on key press
                 asteroidSpawn();// spawn asteroid
-                ufoSpawn();// spawn ufo's
+                //ufoSpawn();// spawn ufo's
                 checkRockets();// checks rocket collision
                 checkBomb();// checks boom collision
                 removeDead();// remove dead objects

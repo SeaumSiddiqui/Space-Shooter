@@ -18,10 +18,8 @@ public class BackgroundSlideshow {
     public BackgroundSlideshow(GameFrame game) {
 
         this.game = game;
-
         getBackgroundImage();
         startSlideshow();
-
     }
 
     public void getBackgroundImage() {
@@ -48,23 +46,22 @@ public class BackgroundSlideshow {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                currentImageIndex = (currentImageIndex + 1) % backgroundImage.length;
-                xOffset = 0; // reset xOffset
+                xOffset += (double) 1.2;
+                if (xOffset >= game.screenWidth) {
+                    xOffset = 0;
+                    currentImageIndex = (currentImageIndex + 1) % backgroundImage.length;
+                }
             }
-        }, 0, 999999999);
+        }, 0, 70); // Adjust the delay to control slideshow speed
     }
 
     public void draw(Graphics2D g2D) {
 
         BufferedImage currentImage = backgroundImage[currentImageIndex];
-        BufferedImage nextImage = backgroundImage[(currentImageIndex + 1) % backgroundImage.length];
-
         g2D.drawImage(currentImage, -xOffset, 0, game.screenWidth, game.screenHeight, null);
-        g2D.drawImage(nextImage, game.screenWidth - xOffset, 0, game.screenWidth, game.screenHeight, null);
 
-        xOffset += 2; // set the slideshow speed
-        if (xOffset >= game.screenWidth) {
-            xOffset = 0;
-        }
+        int nextImageIndex = (currentImageIndex + 1) % backgroundImage.length;
+        BufferedImage nextImage = backgroundImage[nextImageIndex];
+        g2D.drawImage(nextImage, game.screenWidth - xOffset, 0, game.screenWidth, game.screenHeight, null);
     }
 }

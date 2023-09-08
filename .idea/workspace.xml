@@ -4,23 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="- updated ufo class to make hit an animation&#10;- added image and function to animate them">
-      <change afterPath="$PROJECT_DIR$/res/space/image1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/image2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/image3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/image4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/image5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/image6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ufo/spark/spark1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ufo/spark/spark2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ufo/spark/spark3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ufo/spark/spark4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/res/spaceX/image1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/spaceX/image2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/spaceX/image3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/spaceX/image4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/spaceX/image5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/spaceX/image6.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Planet.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/image1.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/image2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/image3.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/image4.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/image5.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/image6.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/planet1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/space/planet2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694112146498</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added a new class BackgroundSlideshow to move the background in a seamless transition.">
+      <created>1694124306877</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1694124306877</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -137,6 +144,7 @@
     <MESSAGE value="updated Rocket class&#10;- added function for secondary fire animation&#10;status complete" />
     <MESSAGE value="added images to make hit animation in asteroid class" />
     <MESSAGE value="- updated ufo class to make hit an animation&#10;- added image and function to animate them" />
-    <option name="LAST_COMMIT_MESSAGE" value="- updated ufo class to make hit an animation&#10;- added image and function to animate them" />
+    <MESSAGE value="Added a new class BackgroundSlideshow to move the background in a seamless transition." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a new class BackgroundSlideshow to move the background in a seamless transition." />
   </component>
 </project>
