@@ -4,23 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/spaceX/image1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceX/image2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceX/image3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceX/image4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceX/image5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/spaceX/image6.jpg" afterDir="false" />
+    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array">
+      <change afterPath="$PROJECT_DIR$/src/main/GameSound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image1.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image2.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image3.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image4.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image5.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image6.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/space/image6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/planet1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/planet2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/spaceX/image1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/spaceX/image2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/spaceX/image3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/spaceX/image4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/spaceX/image5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/spaceX/image6.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694124306877</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array">
+      <created>1694174055203</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1694174055206</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,6 +144,7 @@
     <MESSAGE value="added images to make hit animation in asteroid class" />
     <MESSAGE value="- updated ufo class to make hit an animation&#10;- added image and function to animate them" />
     <MESSAGE value="Added a new class BackgroundSlideshow to move the background in a seamless transition." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a new class BackgroundSlideshow to move the background in a seamless transition." />
+    <MESSAGE value="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array" />
   </component>
 </project>

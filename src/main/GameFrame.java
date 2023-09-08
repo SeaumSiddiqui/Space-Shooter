@@ -18,11 +18,16 @@ public class GameFrame extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow; //640px
     public final int FPS = 60; //60 frames per second
 
-    // Background
+    // background
     BackgroundSlideshow slideshow = new BackgroundSlideshow(this);
+
+    // game sound
+    GameSound gs = new GameSound();
 
     // initialize KeyHandler
     KeyHandler keyH = new KeyHandler();
+
+
 
     // spaceship
     public Spaceship ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
