@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array">
-      <change afterPath="$PROJECT_DIR$/src/main/GameSound.java" afterDir="false" />
+    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="- Introduced new GameSound class.">
+      <change afterPath="$PROJECT_DIR$/res/sound/explosion.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/hit.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/shoot1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/shoot2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/space-shooter.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/space/bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/space/bg7.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/spaceX/image1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/spaceX/image2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/spaceX/image3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/spaceX/image4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/spaceX/image5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/spaceX/image6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/SpaceObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/SpaceObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Spaceship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Spaceship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694174055206</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Introduced new GameSound class.">
+      <created>1694188580384</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1694188580384</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -145,6 +156,7 @@
     <MESSAGE value="- updated ufo class to make hit an animation&#10;- added image and function to animate them" />
     <MESSAGE value="Added a new class BackgroundSlideshow to move the background in a seamless transition." />
     <MESSAGE value="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array" />
+    <MESSAGE value="- Introduced new GameSound class." />
+    <option name="LAST_COMMIT_MESSAGE" value="- Introduced new GameSound class." />
   </component>
 </project>

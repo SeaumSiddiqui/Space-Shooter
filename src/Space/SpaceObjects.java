@@ -34,9 +34,10 @@ public class SpaceObjects {
     BufferedImage rocketY1, rocketY2, rocketY3, rocketY4, rocketY5, rocketY6;
 
     // bomb
-    BufferedImage bombUp, bombDown, bombLeft, bombRight, bombUpLeft,
-            bombUpRight, bombDownLeft, bombDownRight,
-            deadImg1, deadImg2, deadImg3;
+    BufferedImage bombUp, bombDown, bombLeft, bombRight, bombUpLeft, bombUpRight, bombDownLeft, bombDownRight,
+                  explosion1, explosion2, explosion3, explosion4, explosion5, explosion6, explosion7, explosion8,
+                  bombLeft1, bombLeft2, bombRight1, bombRight2  ;
+
 
     // UFO
     BufferedImage ufo1, ufo2;

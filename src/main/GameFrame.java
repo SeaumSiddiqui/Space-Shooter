@@ -18,11 +18,13 @@ public class GameFrame extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow; //640px
     public final int FPS = 60; //60 frames per second
 
+
+
     // background
     BackgroundSlideshow slideshow = new BackgroundSlideshow(this);
 
     // game sound
-    GameSound gs = new GameSound();
+    GameSound sound = new GameSound();
 
     // initialize KeyHandler
     KeyHandler keyH = new KeyHandler();
@@ -55,6 +57,7 @@ public class GameFrame extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
+        playMusic(0);
     }
 
     public void startGame() {
@@ -118,6 +121,8 @@ public class GameFrame extends JPanel implements Runnable {
         // rocket X
         if (keyH.rocketFireX && keyH.rocketFiredX) {
 
+            playSE(3);
+
             ship.rocketType = "x";
             ship.fire();
             keyH.resetRocketX();
@@ -130,6 +135,9 @@ public class GameFrame extends JPanel implements Runnable {
         if (keyH.rocketFireY) {
             // check if rocketY is not on cooldown or enough time has passed
             if (!keyH.yOnCooldown) {
+
+                playSE(4);
+
                 ship.rocketType = "y";
                 ship.fire();
                 keyH.yOnCooldown = true;
@@ -222,9 +230,6 @@ public class GameFrame extends JPanel implements Runnable {
         // draw background
         slideshow.draw(g2D);
 
-        // draw spaceship
-        ship.drawSpaceship(g2D);
-
         // draw other game objects
        for (SpaceObjects object: getObjects()) {
 
@@ -234,6 +239,9 @@ public class GameFrame extends JPanel implements Runnable {
                e.printStackTrace();
            }
        }
+
+        // draw spaceship
+        ship.drawSpaceship(g2D);
 
         // ensure pending graphics operations are completed
         Toolkit.getDefaultToolkit().sync();
@@ -260,7 +268,7 @@ public class GameFrame extends JPanel implements Runnable {
 
                 rocketSpawn();// spawn rockets on key press
                 asteroidSpawn();// spawn asteroid
-                //ufoSpawn();// spawn ufo's
+                ufoSpawn();// spawn ufo's
                 checkRockets();// checks rocket collision
                 checkBomb();// checks boom collision
                 removeDead();// remove dead objects
@@ -271,8 +279,25 @@ public class GameFrame extends JPanel implements Runnable {
             }
         }
     }
+    // play background music
+    public void playMusic(int i) {
+        sound.setFile(i);
+        sound.play();
+        sound.loop();
+    }
 
+    public void stopMusic() {
+        sound.stop();
+    }
+    // play sound effects
+    public void playSE(int i) {
+        sound.setFile(i);
+        sound.play();
+    }
     public List<Rocket> getRockets() {
         return rockets;
+    }
+    public List<Bomb> getBombs() {
+        return bombs;
     }
 }

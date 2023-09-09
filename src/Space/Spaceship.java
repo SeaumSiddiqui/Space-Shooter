@@ -80,7 +80,7 @@ public class Spaceship extends SpaceObjects {
 
     public void fire() {
 
-        game.getRockets().add(new Rocket(x, y + game.tileSize, game.tileSize / 4, game.tileSize / 6,0, 111, 8, this));
+        game.getRockets().add(new Rocket(x, y + (game.tileSize / 2), game.tileSize / 4, game.tileSize / 6,0, 111, 8, this));
 
     }
 

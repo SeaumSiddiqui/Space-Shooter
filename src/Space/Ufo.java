@@ -35,7 +35,7 @@ public class Ufo extends SpaceObjects{
             public void run() {
                 dropBomb();
             }
-        }, 0, 20000); // 20,000 milliseconds = 20 seconds
+        }, 0, 10000); // 20,000 milliseconds = 20 seconds
 
 
 
@@ -138,8 +138,8 @@ public class Ufo extends SpaceObjects{
 
     public void dropBomb() {
 
-        //if (!isDead)
-            //game.getBombs().add(new Bomb(getX(), getY(), width, height, 111, 333, 0, this));
+        if (!isExploded)
+            game.getBombs().add(new Bomb(getX(), getY(), width, height, 111, 333, 0, this));
     }
 
     public void draw(Graphics2D g2D) {
