@@ -4,19 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="- Introduced new GameSound class.">
-      <change afterPath="$PROJECT_DIR$/res/sound/explosion.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/hit.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/shoot1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/shoot2.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/sound/space-shooter.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/bg4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/space/bg7.png" afterDir="false" />
+    <list default="true" id="6ce6e34b-e7a9-48bb-81dd-cab90104488a" name="Changes" comment="- fixed bomb movement&#10;- fixed bomb explosion on bottom edge collision">
+      <change afterPath="$PROJECT_DIR$/res/fire/bombL/left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fire/bombL/left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fire/bombR/right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/fire/bombR/right2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/SpaceObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/SpaceObjects.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Spaceship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Spaceship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -145,8 +138,26 @@
       <option name="project" value="LOCAL" />
       <updated>1694188580384</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="- fixed bomb movement&#10;- fixed bomb explosion on bottom edge collision">
+      <created>1694280824096</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1694280824097</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -157,6 +168,7 @@
     <MESSAGE value="Added a new class BackgroundSlideshow to move the background in a seamless transition." />
     <MESSAGE value="fixed the issue in BackgroundSlideshow where it only loops between first two images in backgroundImage array" />
     <MESSAGE value="- Introduced new GameSound class." />
-    <option name="LAST_COMMIT_MESSAGE" value="- Introduced new GameSound class." />
+    <MESSAGE value="- fixed bomb movement&#10;- fixed bomb explosion on bottom edge collision" />
+    <option name="LAST_COMMIT_MESSAGE" value="- fixed bomb movement&#10;- fixed bomb explosion on bottom edge collision" />
   </component>
 </project>

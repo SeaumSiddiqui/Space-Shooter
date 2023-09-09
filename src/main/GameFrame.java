@@ -185,7 +185,14 @@ public class GameFrame extends JPanel implements Runnable {
     public void checkBomb() {
         // check collision between bombs and the spaceship
         for (Bomb bomb: bombs) {
-
+            // check collision between bomb and asteroid
+            for (Asteroid asteroid: asteroids) {
+                if (asteroid.intersects(bomb)) {
+                    asteroid.takeDamage(bomb.getDamage());
+                    bomb.takeDamage(asteroid.getDamage());
+                }
+            }
+            // check collision between bomb and spaceship
             if (ship.intersects(bomb)) {
                 ship.takeDamage(bomb.getDamage());
                 bomb.takeDamage(ship.getDamage());
@@ -193,25 +200,41 @@ public class GameFrame extends JPanel implements Runnable {
         }
     }
 
+    public void checkUfo() {
+
+        for (Ufo ufo: ufo) {
+            if (ship.intersects(ufo)) {
+                ship.takeDamage(ufo.getDamage());
+                ufo.takeDamage(ship.getDamage());
+            }
+        }
+    }
+
+    public void checkAsteroid() {
+        for(Asteroid asteroid: asteroids) {
+            if (ship.intersects(asteroid)) {
+                ship.takeDamage(asteroid.getDamage());
+                asteroid.takeDamage(ship.getDamage());
+            }
+        }
+    }
 
     public void borderCollision() {
-
-        // prevent ship from going offscreen
-        ship.checkCollision();
-
-        // bounce off ufo from the screen edges
+        // remove offscreen rockets
         for (Rocket rocket: rockets) {
             rocket.checkCollision();
-        }
+        }// remove offscreen bombs and explode if touches the bottom screen
         for (Bomb bomb: bombs) {
             bomb.checkCollision();
-        }
+        }// remove offscreen asteroids
         for (Asteroid asteroid: asteroids) {
             asteroid.checkCollision();
-        }
+        }// bounce off ufo from screen edges
         for (Ufo ufo: ufo) {
             ufo.checkCollision();
         }
+        // prevent ship from going offscreen
+        ship.checkCollision();
     }
 
     public void removeDead() {
@@ -239,7 +262,6 @@ public class GameFrame extends JPanel implements Runnable {
                e.printStackTrace();
            }
        }
-
         // draw spaceship
         ship.drawSpaceship(g2D);
 
@@ -269,16 +291,19 @@ public class GameFrame extends JPanel implements Runnable {
                 rocketSpawn();// spawn rockets on key press
                 asteroidSpawn();// spawn asteroid
                 ufoSpawn();// spawn ufo's
-                checkRockets();// checks rocket collision
-                checkBomb();// checks boom collision
+                checkRockets();// checks rocket collision with objects
+                checkBomb();// checks boom collision with objects
+                checkUfo();// checks collision between ufo and spaceship
+                checkAsteroid();// checks collision between asteroid and spaceship
                 removeDead();// remove dead objects
                 update();// update position and remove dead objects
-                borderCollision();// checks screen collision
+                borderCollision();// checks collision with edge/remove offscreen objects
                 repaint();// repaint the panel
                 delta--;
             }
         }
     }
+
     // play background music
     public void playMusic(int i) {
         sound.setFile(i);
@@ -294,9 +319,11 @@ public class GameFrame extends JPanel implements Runnable {
         sound.setFile(i);
         sound.play();
     }
+
     public List<Rocket> getRockets() {
         return rockets;
     }
+
     public List<Bomb> getBombs() {
         return bombs;
     }
