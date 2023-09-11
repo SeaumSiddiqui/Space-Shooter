@@ -1,6 +1,6 @@
 package main;
 
-import Space.*;
+import space.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.*;
@@ -18,7 +18,10 @@ public class GameFrame extends JPanel implements Runnable {
     public final int screenHeight = tileSize * maxScreenRow; //640px
     public final int FPS = 60; //60 frames per second
 
-
+    // game state
+    public int gameState;
+    public final int play = 1;
+    public final int pause = 2;
 
     // background
     BackgroundSlideshow slideshow = new BackgroundSlideshow(this);
@@ -27,13 +30,13 @@ public class GameFrame extends JPanel implements Runnable {
     GameSound sound = new GameSound();
 
     // initialize KeyHandler
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
 
 
 
     // spaceship
-    public Spaceship ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
-                            tileSize, 999, 999, 8, keyH, this);
+    public Spaceship  ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
+            tileSize, 999, 999, 8, keyH, this);
 
     // UFO
     public final List<Ufo> ufo = new ArrayList<>();
@@ -58,22 +61,7 @@ public class GameFrame extends JPanel implements Runnable {
         this.setFocusable(true);
 
         playMusic(0);
-    }
-
-    public void startGame() {
-
-        gameThread = new Thread(this);
-        gameThread.start();
-    }
-
-    public void update() {
-
-        ship.move();
-
-        for (SpaceObjects object: getObjects()) {
-
-            object.move();
-        }
+        gameState = play;
     }
 
     public List<SpaceObjects> getObjects() {
@@ -86,7 +74,41 @@ public class GameFrame extends JPanel implements Runnable {
         return list;
     }
 
+    public void startGame() {
 
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+
+    public void update() {
+
+        if (gameState == play) {
+
+            ship.move();
+
+            for (SpaceObjects object : getObjects()) {
+                object.move();
+            }
+        }
+        if (gameState == pause) {
+            // nothing here
+        }
+    }
+
+    public void spaceshipSpawn() {
+
+        ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
+                tileSize, ship.getHealth(), 999, 8, keyH, this);
+
+    }
+
+    public void objectSpawn() {
+
+        if (gameState == 1) {
+            asteroidSpawn();// spawn asteroid
+            ufoSpawn();// spawn ufo's
+        }
+    }
 
     public void asteroidSpawn(){
 
@@ -113,42 +135,6 @@ public class GameFrame extends JPanel implements Runnable {
             ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2),tileSize, tileSize, 555, 333, 2, this));
             ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2 + tileSize),tileSize, tileSize, 555, 333, 2, this));
             ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2 + (tileSize * 4)),tileSize, tileSize, 555, 333, 2, this));
-        }
-    }
-
-    public void rocketSpawn() {
-
-        // rocket X
-        if (keyH.rocketFireX && keyH.rocketFiredX) {
-
-            playSE(3);
-
-            ship.rocketType = "x";
-            ship.fire();
-            keyH.resetRocketX();
-        }
-
-        // rocket Y
-        keyH.setCooldownDuration(1000);
-        long currentTime = System.currentTimeMillis();
-
-        if (keyH.rocketFireY) {
-            // check if rocketY is not on cooldown or enough time has passed
-            if (!keyH.yOnCooldown) {
-
-                playSE(4);
-
-                ship.rocketType = "y";
-                ship.fire();
-                keyH.yOnCooldown = true;
-                keyH.lastYFireTime = currentTime;
-            }
-            // Optional: add an else condition to provide feedback that rocketY is on cooldown.
-            // will add cooldown animation bar later
-        }
-        // reset cooldown flag
-        if (keyH.yOnCooldown && currentTime - keyH.lastYFireTime >= keyH.cooldownDuration) {
-            keyH.yOnCooldown = false;
         }
     }
 
@@ -196,6 +182,7 @@ public class GameFrame extends JPanel implements Runnable {
             if (ship.intersects(bomb)) {
                 ship.takeDamage(bomb.getDamage());
                 bomb.takeDamage(ship.getDamage());
+                spaceshipSpawn();
             }
         }
     }
@@ -206,6 +193,7 @@ public class GameFrame extends JPanel implements Runnable {
             if (ship.intersects(ufo)) {
                 ship.takeDamage(ufo.getDamage());
                 ufo.takeDamage(ship.getDamage());
+                spaceshipSpawn();
             }
         }
     }
@@ -215,6 +203,7 @@ public class GameFrame extends JPanel implements Runnable {
             if (ship.intersects(asteroid)) {
                 ship.takeDamage(asteroid.getDamage());
                 asteroid.takeDamage(ship.getDamage());
+                spaceshipSpawn();
             }
         }
     }
@@ -288,9 +277,7 @@ public class GameFrame extends JPanel implements Runnable {
 
             if (delta >= 1) {
 
-                rocketSpawn();// spawn rockets on key press
-                asteroidSpawn();// spawn asteroid
-                ufoSpawn();// spawn ufo's
+                objectSpawn();// spawn ufo & asteroid
                 checkRockets();// checks rocket collision with objects
                 checkBomb();// checks boom collision with objects
                 checkUfo();// checks collision between ufo and spaceship

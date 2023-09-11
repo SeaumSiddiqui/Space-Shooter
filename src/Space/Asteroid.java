@@ -1,4 +1,4 @@
-package Space;
+package space;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

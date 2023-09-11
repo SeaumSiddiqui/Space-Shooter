@@ -5,16 +5,22 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
+    GameFrame game;
     public boolean upPressed, downPressed, leftPressed, rightPressed;
     public String playerDirection;
 
-    boolean rocketFireX = false;
-    boolean rocketFiredX = false;
+    public boolean rocketFireX = false;
+    public boolean rocketFiredX = false;
 
-    boolean rocketFireY = false;
-    boolean yOnCooldown = false;
-    long lastYFireTime = 0;
-    long cooldownDuration;
+    public boolean rocketFireY = false;
+    public boolean yOnCooldown = false;
+    public long lastYFireTime = 0;
+    public long cooldownDuration;
+
+    public KeyHandler(GameFrame game) {
+
+        this.game = game;
+    }
 
     public void setCooldownDuration(long duration) {
         cooldownDuration = duration;
@@ -44,6 +50,16 @@ public class KeyHandler implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
             playerDirection = "right";
             rightPressed = true;
+        }
+        // update game state
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+
+            if (game.gameState == game.play) {
+                game.gameState = game.pause;
+            }
+            else if (game.gameState == game.pause) {
+                game.gameState = game.play;
+            }
         }
 
 

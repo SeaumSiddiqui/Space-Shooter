@@ -1,4 +1,4 @@
-package Space;
+package space;
 
 import main.GameFrame;
 import main.KeyHandler;
@@ -58,6 +58,14 @@ public class Spaceship extends SpaceObjects {
             if (keyH.rightPressed) {
                 x += speed;
             }
+
+            // rocket fire
+            if (keyH.rocketFireX) {
+                fire();
+            }
+            if (keyH.rocketFireY) {
+                fire();
+            }
         }
     }
 
@@ -80,8 +88,38 @@ public class Spaceship extends SpaceObjects {
 
     public void fire() {
 
-        game.getRockets().add(new Rocket(x, y + (game.tileSize / 2), game.tileSize / 4, game.tileSize / 6,0, 111, 8, this));
+        // rocket X
+        if (keyH.rocketFireX && keyH.rocketFiredX) {
 
+            game.playSE(3);
+
+            rocketType = "x";
+            game.getRockets().add(new Rocket(x, y + (game.tileSize / 2), game.tileSize / 4, game.tileSize / 6,0, 111, 8, this));
+            keyH.resetRocketX();
+        }
+
+        // rocket Y
+        keyH.setCooldownDuration(1000);
+        long currentTime = System.currentTimeMillis();
+
+        if (keyH.rocketFireY) {
+            // check if rocketY is not on cooldown or enough time has passed
+            if (!keyH.yOnCooldown) {
+
+                game.playSE(4);
+
+                rocketType = "y";
+                game.getRockets().add(new Rocket(x, y + (game.tileSize / 2), game.tileSize / 4, game.tileSize / 6,0, 111, 8, this));
+                keyH.yOnCooldown = true;
+                keyH.lastYFireTime = currentTime;
+            }
+            // Optional: add an else condition to provide feedback that rocketY is on cooldown.
+            // will add cooldown animation bar later
+        }
+        // reset cooldown flag
+        if (keyH.yOnCooldown && currentTime - keyH.lastYFireTime >= keyH.cooldownDuration) {
+            keyH.yOnCooldown = false;
+        }
     }
 
 
