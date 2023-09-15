@@ -9,6 +9,8 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed;
     public String playerDirection;
 
+    public boolean restartGame = false;
+
     public boolean rocketFireX = false;
     public boolean rocketFiredX = false;
 
@@ -34,6 +36,11 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
 
+        // restart game
+        if (e.getKeyCode() == KeyEvent.VK_R) {
+            restartGame = true;
+        }
+
         // spacecraft
         if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
             playerDirection = "up";
@@ -56,6 +63,7 @@ public class KeyHandler implements KeyListener {
 
             if (game.gameState == game.play) {
                 game.gameState = game.pause;
+                game.ui.showMessage("PAUSED");
             }
             else if (game.gameState == game.pause) {
                 game.gameState = game.play;
@@ -77,6 +85,11 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
+
+        // restart game
+        if (e.getKeyCode() == KeyEvent.VK_R) {
+            restartGame = false;
+        }
 
         // spacecraft
         if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {

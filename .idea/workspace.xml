@@ -9,113 +9,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="141d667a-6ba6-42dc-8466-178da7f5c559" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fire/rocket2/charged1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fire/rocket2/charged2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fire/rocket2/charged3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fire/rocket2/charged4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fire/rocket2/charged5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/fire/rocket2/charged6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="141d667a-6ba6-42dc-8466-178da7f5c559" name="Changes" comment="- added function to pause game state.">
+      <change afterPath="$PROJECT_DIR$/resources/fonts/LLPIXEL3.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Space Shooter.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Space Shooter.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/asteroid1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/asteroid1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/asteroid2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/asteroid2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/asteroid3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/asteroid3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/asteroid4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/asteroid4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/asteroid5.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/asteroid5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit5.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit6.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit7.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit/hit8.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit/hit8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit5.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit6.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit7.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit1/hit8.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit1/hit8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit5.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit6.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit7.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit2/hit8.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit2/hit8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit10.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit5.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit6.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit7.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit8.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/asteroid/hit4/hit9.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/asteroid/hit4/hit9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombL/left1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombL/left1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombL/left2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombL/left2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/dLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/dLeft.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/dRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/dRight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/down.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/down.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/left.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/right.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/right.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/uLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/uLeft.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/uRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/uRight.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombLeft/up.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombLeft/up.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombR/right1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombR/right1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/bombR/right2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/bombR/right2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/rocket1/shoot1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/rocket1/shoot1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/fire/rocket1/shoot2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/fire/rocket1/shoot2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player sprites/down.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/player sprites/down.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player sprites/static.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/player sprites/static.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/player sprites/up.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/player sprites/up.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sound/explosion.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sound/explosion.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sound/hit.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sound/hit.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sound/shoot1.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sound/shoot1.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sound/shoot2.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sound/shoot2.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sound/space-shooter.wav" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sound/space-shooter.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/bg4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/bg4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/bg7.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/bg7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/image1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/image2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/image3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/image4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image5.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/image5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/space/image6.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/space/image6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ufo/left.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ufo/left.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ufo/right.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ufo/right.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ufo/spark/spark1.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ufo/spark/spark1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ufo/spark/spark2.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ufo/spark/spark2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ufo/spark/spark3.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ufo/spark/spark3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ufo/spark/spark4.png" beforeDir="false" afterPath="$PROJECT_DIR$/resources/ufo/spark/spark4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Asteroid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Rocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Rocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/SpaceObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/SpaceObjects.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Space/Spaceship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Spaceship.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/temp.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/Grid.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="441fa7db-20fd-4d83-8704-e7428987b545" />
+        <option name="url" value="https://github.com/SeaumSiddiqui/Space-Shooter.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectId" id="2VFlNaF4j4XoDuG3Ym76BWGtBMd" />
   <component name="ProjectLevelVcsManager">
@@ -125,16 +53,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/SUCCESS/IdeaProjects/Space Shooter/.idea",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.1764706",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SUCCESS/IdeaProjects/Java Clock App&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.1764706&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\SUCCESS\IdeaProjects\Space Shooter\.idea" />
@@ -174,7 +103,19 @@
       <option name="presentableId" value="Default" />
       <updated>1694439684996</updated>
     </task>
+    <task id="LOCAL-00001" summary="- added function to pause game state.">
+      <created>1694445993878</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694445993894</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="- added function to pause game state." />
+    <option name="LAST_COMMIT_MESSAGE" value="- added function to pause game state." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Space_Shooter$Space_Shooter_jar.ic" NAME="Space Shooter.jar Coverage Results" MODIFIED="1694355737454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

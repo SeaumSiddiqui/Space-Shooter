@@ -13,7 +13,7 @@ public class Spaceship extends SpaceObjects {
     GameFrame game;
     KeyHandler keyH;
     public String rocketType;
-
+    public String playerHealth = "max";
     public Spaceship(int x, int y, int width, int height, int health, int damage, int speed, KeyHandler keyH, GameFrame game) {
 
         super(x, y, width, height, health, damage, speed);
@@ -66,6 +66,17 @@ public class Spaceship extends SpaceObjects {
             if (keyH.rocketFireY) {
                 fire();
             }
+        }
+
+        if (health <= 666) {
+            playerHealth = "2Left";
+        }
+        if (health <= 333) {
+            playerHealth = "1Left";
+        }
+        if (health <= 0) {
+            playerHealth = "GameOver";
+            isDead = true;
         }
     }
 

@@ -9,8 +9,8 @@ import java.util.List;
 public class GameFrame extends JPanel implements Runnable {
 
     // Screen settings
-    private final int initTileSize = 16; //16x16 tile
-    private final int scale = 4;
+    public final int initTileSize = 16; //16x16 tile
+    public final int scale = 4;
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 10;
     public final int tileSize = initTileSize * scale; //64x64 tile
@@ -28,6 +28,9 @@ public class GameFrame extends JPanel implements Runnable {
 
     // game sound
     GameSound sound = new GameSound();
+
+    // UI
+    UI ui = new UI(this);
 
     // initialize KeyHandler
     KeyHandler keyH = new KeyHandler(this);
@@ -90,16 +93,14 @@ public class GameFrame extends JPanel implements Runnable {
                 object.move();
             }
         }
-        if (gameState == pause) {
-            // nothing here
-        }
     }
 
     public void spaceshipSpawn() {
 
-        ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
-                tileSize, ship.getHealth(), 999, 8, keyH, this);
-
+        if (!ship.isDead()) {
+            ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
+                    tileSize, ship.getHealth(), 999, 8, keyH, this);
+        }
     }
 
     public void objectSpawn() {
@@ -254,6 +255,9 @@ public class GameFrame extends JPanel implements Runnable {
         // draw spaceship
         ship.drawSpaceship(g2D);
 
+       // draw UI
+        ui.draw(g2D);
+
         // ensure pending graphics operations are completed
         Toolkit.getDefaultToolkit().sync();
         // dispose of the graphics context after all drawing operations
@@ -261,35 +265,59 @@ public class GameFrame extends JPanel implements Runnable {
     }
 
     // main game loop
-    @Override
     public void run() {
-
         double drawInterval = (double) 1000000000 / FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
 
-        while(gameThread != null) {
+        while (gameThread != null) {
 
-            currentTime = System.nanoTime();
-            delta += (currentTime - lastTime) / drawInterval;
-            lastTime = currentTime;
+            if (gameState == play) {
+                currentTime = System.nanoTime();
+                delta += (currentTime - lastTime) / drawInterval;
+                lastTime = currentTime;
 
-            if (delta >= 1) {
+                if (delta >= 1) {
+                    objectSpawn();  // spawn ufo & asteroid
+                    checkRockets(); // checks rocket collision with objects
+                    checkBomb();    // checks boom collision with objects
+                    checkUfo();     // checks collision between ufo and spaceship
+                    checkAsteroid(); // checks collision between asteroid and spaceship
+                    removeDead();   // remove dead objects
+                    update();       // update position and remove dead objects
+                    borderCollision(); // checks collision with edge/remove offscreen objects
+                    repaint();      // repaint the panel
+                    delta--;
+                }
+            }
 
-                objectSpawn();// spawn ufo & asteroid
-                checkRockets();// checks rocket collision with objects
-                checkBomb();// checks boom collision with objects
-                checkUfo();// checks collision between ufo and spaceship
-                checkAsteroid();// checks collision between asteroid and spaceship
-                removeDead();// remove dead objects
-                update();// update position and remove dead objects
-                borderCollision();// checks collision with edge/remove offscreen objects
-                repaint();// repaint the panel
-                delta--;
+            // Check for a restart input (e.g., key press 'R')
+            if (keyH.restartGame) {
+                restart();
+                gameState = play; // Reset the game state
             }
         }
     }
+
+    public void restart() {
+        // Reset all game-related variables to their initial values
+        gameState = play; // set the game state to "play"
+        ship.health = 999; // set player health to full
+        ship.setDead(false); // mark player as alive
+
+        // score = 0;
+
+        // reset the spaceship
+        spaceshipSpawn();
+
+        // clear all objects lists
+        rockets.clear();
+        bombs.clear();
+        asteroids.clear();
+        ufo.clear();
+    }
+
 
     // play background music
     public void playMusic(int i) {
