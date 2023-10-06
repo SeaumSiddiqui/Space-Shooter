@@ -19,6 +19,8 @@ public class KeyHandler implements KeyListener {
     public long lastYFireTime = 0;
     public long cooldownDuration;
 
+    public int commandNum = 0;
+
     public KeyHandler(GameFrame game) {
 
         this.game = game;
@@ -35,6 +37,35 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
+        // title screen
+        if (game.gameState == game.titleState) {
+
+            if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
+                commandNum--;
+                if (commandNum < 0) {
+                    commandNum = 2;
+                }
+            }
+            if (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
+                commandNum++;
+                if (commandNum > 2) {
+                    commandNum = 0;
+                }
+            }
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                if (commandNum == 0) {
+                    game.gameState = game.play;
+                    game.playMusic(0);
+                }
+                if (commandNum == 1) {
+                    System.out.println("later");
+                }
+                if (commandNum == 2) {
+                    System.exit(0);
+                }
+            }
+        }
 
         // restart game
         if (e.getKeyCode() == KeyEvent.VK_R) {

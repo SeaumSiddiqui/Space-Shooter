@@ -20,8 +20,10 @@ public class GameFrame extends JPanel implements Runnable {
 
     // game state
     public int gameState;
-    public final int play = 1;
+    public final int play = 3;
     public final int pause = 2;
+    public final int gameOver = 1;
+    public final int titleState = 0;
 
     // background
     BackgroundSlideshow slideshow = new BackgroundSlideshow(this);
@@ -29,13 +31,11 @@ public class GameFrame extends JPanel implements Runnable {
     // game sound
     GameSound sound = new GameSound();
 
-    // UI
-    UI ui = new UI(this);
-
     // initialize KeyHandler
     KeyHandler keyH = new KeyHandler(this);
 
-
+    // UI
+    UI ui = new UI(this);
 
     // spaceship
     public Spaceship  ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
@@ -63,8 +63,7 @@ public class GameFrame extends JPanel implements Runnable {
         this.addKeyListener(keyH);
         this.setFocusable(true);
 
-        playMusic(0);
-        gameState = play;
+        gameState = titleState;
     }
 
     public List<SpaceObjects> getObjects() {
@@ -105,7 +104,7 @@ public class GameFrame extends JPanel implements Runnable {
 
     public void objectSpawn() {
 
-        if (gameState == 1) {
+        if (gameState ==  play) {
             asteroidSpawn();// spawn asteroid
             ufoSpawn();// spawn ufo's
         }
@@ -240,23 +239,27 @@ public class GameFrame extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2D = ((Graphics2D) g);
 
-        // draw background
-        slideshow.draw(g2D);
+        if(gameState == play) {
+            // draw background
+            slideshow.draw(g2D);
+            // draw spaceship
+            ship.drawSpaceship(g2D);
+            // draw ui
+            ui.drawGameUI(g2D);
+            // draw other game objects
+            for (SpaceObjects object : getObjects()) {
 
-        // draw other game objects
-       for (SpaceObjects object: getObjects()) {
+                try {
+                    object.draw(g2D);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-           try {
-               object.draw(g2D);
-           } catch (Exception e) {
-               e.printStackTrace();
-           }
-       }
-        // draw spaceship
-        ship.drawSpaceship(g2D);
-
-       // draw UI
-        ui.draw(g2D);
+        if (gameState == titleState){
+            ui.drawTitleUI(g2D);
+        }
 
         // ensure pending graphics operations are completed
         Toolkit.getDefaultToolkit().sync();
@@ -291,9 +294,13 @@ public class GameFrame extends JPanel implements Runnable {
                     delta--;
                 }
             }
+            else if (gameState == pause) {
 
-            // Check for a restart input (e.g., key press 'R')
-            if (keyH.restartGame) {
+            }
+            else if (gameState == titleState) {
+                repaint();
+            }
+            else if (keyH.restartGame) {
                 restart();
                 gameState = play; // Reset the game state
             }

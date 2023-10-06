@@ -13,8 +13,8 @@ public class SpaceObjects {
     public int damage;
     public int speed;
     int radius = 64;
-    boolean isDead = false; // remove the object from screen if false
-    boolean isExploded = false; // show explosion animation if true
+    boolean isDead = false; // remove the object from game if true
+    boolean isExploded = false; // remove the object & show explosion animation if true
 
     public SpaceObjects(int x, int y, int width, int height, int health,  int damage, int speed) {
         this.x = x;
@@ -120,7 +120,7 @@ public class SpaceObjects {
         this.speed = speed;
     }
 
-    public double getRadius() {
+    public int getRadius() {
         //radius = Math.max(width, height) / 2;
         return radius;
     }
@@ -173,5 +173,4 @@ public class SpaceObjects {
 
         return destination <= destination2;
     }
-
 }
