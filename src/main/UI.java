@@ -31,7 +31,6 @@ public class UI {
             LLPIXEL3 = Font.createFont(Font.TRUETYPE_FONT, fontPath1);
 
             scoreFont = LLPIXEL3.deriveFont(game.tileSize / 3f);
-            messageFont = LLPIXEL3.deriveFont(game.tileSize * 10f);
 
 
             InputStream fontPath2 = getClass().getResourceAsStream("/fonts/MaruMonica.ttf");
@@ -40,6 +39,7 @@ public class UI {
 
             titleFont = MaruMonica.deriveFont(Font.BOLD, game.tileSize * 2f);
             menuFont = MaruMonica.deriveFont(Font.BOLD, game.tileSize / 2f);
+            messageFont = MaruMonica.deriveFont(Font.BOLD, game.tileSize * 10f);
 
 
             // load heart icons
@@ -56,14 +56,27 @@ public class UI {
         showMessage = true;
     }
 
+    public void drawUI(Graphics2D g2D) {
+
+        if (game.gameState == game.play) {
+            drawGameUI(g2D);
+        }
+        if (game.gameState == game.pause) {
+            drawPauseUI(g2D);
+        }
+        if (game.gameState == game.titleState) {
+            drawTitleUI(g2D);
+        }
+        if (game.gameState == game.gameOver) {
+            drawEndUI(g2D);
+        }
+    }
+
     public void drawGameUI(Graphics2D g2D) {
 
         g2D.setFont(scoreFont);
         g2D.setColor(Color.WHITE);
-        g2D.drawString("Score: ", game.screenWidth - game.tileSize * 3, game.tileSize / 2); // Display the score at coordinates (200, 100)
-
-        g2D.drawString(message, game.screenWidth / 2, game.screenHeight / 2);
-
+        g2D.drawString("Score: 1083", game.screenWidth - game.tileSize * 3, game.tileSize / 2); // Display the score at coordinates (200, 100)
 
         BufferedImage image1 = null;
         BufferedImage image2 = null;
@@ -89,7 +102,40 @@ public class UI {
             g2D.drawImage(image3, game.initTileSize * 5, game.screenHeight - game.tileSize, game.tileSize / 2, game.tileSize / 2, null);
     }
 
+    public void drawPauseUI (Graphics2D g2D) {
+
+        int x = -1;
+        int y = game.tileSize * 3;
+
+        g2D.setColor(Color.WHITE);
+        g2D.drawRect(x, y,game.screenWidth+1, game.screenHeight / 3);
+
+        String text = "Paused";
+        x = game.tileSize * 5;
+        y = game.tileSize * 5;
+
+        g2D.setFont(titleFont);
+        g2D.setColor(Color.DARK_GRAY);
+        g2D.drawString(text, x+5, y+5);
+        g2D.setColor(Color.WHITE);
+        g2D.drawString(text, x, y);
+
+
+        showMessage("press Esc to resume");
+        x = (int) (game.tileSize * 5.8);
+        y = (int) (game.tileSize * 5.8);
+
+        g2D.setFont(menuFont);
+        g2D.setColor(Color.DARK_GRAY);
+        g2D.drawString(message, x, y);
+
+    }
+
     public void drawTitleUI(Graphics2D g2D) {
+
+        // set background
+        //g2D.setColor(Color.BLACK);
+        //g2D.fillRect(0, 0, game.screenWidth, game.screenHeight);
 
         // game title
         String text = "Space Shooter";
@@ -134,5 +180,9 @@ public class UI {
         if (game.keyH.commandNum == 2) {
             g2D.drawString(">", x - game.tileSize / 2, y);
         }
+    }
+
+    public void drawEndUI (Graphics2D g2D) {
+
     }
 }

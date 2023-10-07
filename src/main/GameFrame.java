@@ -1,5 +1,6 @@
 package main;
 
+import com.sun.source.tree.SynchronizedTree;
 import space.*;
 import javax.swing.*;
 import java.awt.*;
@@ -85,7 +86,6 @@ public class GameFrame extends JPanel implements Runnable {
     public void update() {
 
         if (gameState == play) {
-
             ship.move();
 
             for (SpaceObjects object : getObjects()) {
@@ -116,7 +116,7 @@ public class GameFrame extends JPanel implements Runnable {
        int random100 = randomAsteroid.nextInt(250);
 
        if (random100 == 0) {
-           asteroids.add(new Asteroid(screenWidth, randomAsteroid.nextInt(screenHeight - tileSize), tileSize, tileSize, 333, 333, 1));
+           asteroids.add(new Asteroid(screenWidth, randomAsteroid.nextInt(screenHeight - tileSize), tileSize, tileSize, 333, 333, 1, this));
        }
     }
 
@@ -239,13 +239,10 @@ public class GameFrame extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2D = ((Graphics2D) g);
 
-        if(gameState == play) {
             // draw background
             slideshow.draw(g2D);
             // draw spaceship
             ship.drawSpaceship(g2D);
-            // draw ui
-            ui.drawGameUI(g2D);
             // draw other game objects
             for (SpaceObjects object : getObjects()) {
 
@@ -255,11 +252,9 @@ public class GameFrame extends JPanel implements Runnable {
                     e.printStackTrace();
                 }
             }
-        }
 
-        if (gameState == titleState){
-            ui.drawTitleUI(g2D);
-        }
+            // draw ui
+            ui.drawUI(g2D);
 
         // ensure pending graphics operations are completed
         Toolkit.getDefaultToolkit().sync();
@@ -269,6 +264,7 @@ public class GameFrame extends JPanel implements Runnable {
 
     // main game loop
     public void run() {
+
         double drawInterval = (double) 1000000000 / FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
@@ -276,33 +272,21 @@ public class GameFrame extends JPanel implements Runnable {
 
         while (gameThread != null) {
 
-            if (gameState == play) {
-                currentTime = System.nanoTime();
-                delta += (currentTime - lastTime) / drawInterval;
-                lastTime = currentTime;
+            currentTime = System.nanoTime();
+            delta += (currentTime - lastTime) / drawInterval;
+            lastTime = currentTime;
 
-                if (delta >= 1) {
-                    objectSpawn();  // spawn ufo & asteroid
-                    checkRockets(); // checks rocket collision with objects
-                    checkBomb();    // checks boom collision with objects
-                    checkUfo();     // checks collision between ufo and spaceship
-                    checkAsteroid(); // checks collision between asteroid and spaceship
-                    removeDead();   // remove dead objects
-                    update();       // update position and remove dead objects
-                    borderCollision(); // checks collision with edge/remove offscreen objects
-                    repaint();      // repaint the panel
-                    delta--;
-                }
-            }
-            else if (gameState == pause) {
-
-            }
-            else if (gameState == titleState) {
-                repaint();
-            }
-            else if (keyH.restartGame) {
-                restart();
-                gameState = play; // Reset the game state
+            if (delta >= 1) {
+                objectSpawn(); // spawn ufo & asteroid
+                checkRockets(); // checks rocket collision with objects
+                checkBomb(); // checks boom collision with objects
+                checkUfo(); // checks collision between ufo and spaceship
+                checkAsteroid(); // checks collision between asteroid and spaceship
+                removeDead(); // remove dead objects
+                update(); // update position and remove dead objects
+                borderCollision(); // checks collision with edge/remove offscreen objects
+                repaint(); // repaint the panel
+                delta--;
             }
         }
     }

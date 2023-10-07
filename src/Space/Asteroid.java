@@ -1,5 +1,7 @@
 package space;
 
+import main.GameFrame;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -9,17 +11,18 @@ import java.util.Random;
 
 public class Asteroid extends SpaceObjects{
 
+    GameFrame game;
     BufferedImage asteroid;
     BufferedImage[] hit;
-
     private int frameCount = 0;
     private int sprite = 1;
 
     private int deathCount;
 
-    public Asteroid(int x, int y, int width, int height, int health, int damage, int speed) {
+    public Asteroid(int x, int y, int width, int height, int health, int damage, int speed, GameFrame game) {
 
         super(x, y, width, height, health, damage, speed);
+        this.game = game;
 
         // get random asteroid image form asteroidImg array to draw
         asteroid = getAsteroidImg();

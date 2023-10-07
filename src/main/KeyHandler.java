@@ -69,7 +69,8 @@ public class KeyHandler implements KeyListener {
 
         // restart game
         if (e.getKeyCode() == KeyEvent.VK_R) {
-            restartGame = true;
+            game.restart();
+            game.gameState = game.play;
         }
 
         // spacecraft
@@ -94,7 +95,7 @@ public class KeyHandler implements KeyListener {
 
             if (game.gameState == game.play) {
                 game.gameState = game.pause;
-                game.ui.showMessage("PAUSED");
+                //game.ui.showMessage("PAUSED");
             }
             else if (game.gameState == game.pause) {
                 game.gameState = game.play;
@@ -116,11 +117,6 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyReleased(KeyEvent e) {
-
-        // restart game
-        if (e.getKeyCode() == KeyEvent.VK_R) {
-            restartGame = false;
-        }
 
         // spacecraft
         if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
