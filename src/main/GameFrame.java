@@ -292,21 +292,23 @@ public class GameFrame extends JPanel implements Runnable {
     }
 
     public void restart() {
-        // Reset all game-related variables to their initial values
-        gameState = play; // set the game state to "play"
-        ship.health = 999; // set player health to full
-        ship.setDead(false); // mark player as alive
-
-        // score = 0;
-
-        // reset the spaceship
-        spaceshipSpawn();
-
         // clear all objects lists
         rockets.clear();
         bombs.clear();
         asteroids.clear();
         ufo.clear();
+        for (SpaceObjects object : getObjects()) {
+            object.setDead(true);
+        }
+
+        // Reset all game-related variables to their initial values
+        gameState = play; // set the game state to "play"
+        ship.health = 999; // set player health to full
+        ship.setDead(false); // mark player as alive
+        // score = 0;
+
+        // reset the spaceship
+        spaceshipSpawn();
     }
 
 

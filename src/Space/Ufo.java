@@ -138,7 +138,7 @@ public class Ufo extends SpaceObjects{
 
     public void dropBomb() {
 
-        if (!isExploded)
+        if (!isExploded && game.gameState == game.play && game.ufo.size() > 0)
             game.getBombs().add(new Bomb(getX(), getY(), width, height, 111, 333, 0, this));
     }
 

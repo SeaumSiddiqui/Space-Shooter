@@ -67,13 +67,30 @@ public class KeyHandler implements KeyListener {
             }
         }
 
-        // restart game
-        if (e.getKeyCode() == KeyEvent.VK_R) {
-            game.restart();
-            game.gameState = game.play;
+
+        // pause game state
+        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+
+            if (game.gameState == game.play) {
+                game.gameState = game.pause;
+                //game.ui.showMessage("PAUSED");
+            }
+            else if (game.gameState == game.pause) {
+                game.gameState = game.play;
+            }
         }
 
-        // spacecraft
+
+        // restart game
+        if (game.gameState == game.gameOver) {
+            if (e.getKeyCode() == KeyEvent.VK_R) {
+                game.restart();
+                game.gameState = game.play;
+            }
+        }
+
+
+        // spacecraft control
         if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
             playerDirection = "up";
             upPressed = true;
@@ -89,17 +106,6 @@ public class KeyHandler implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_D || e.getKeyCode() == KeyEvent.VK_RIGHT) {
             playerDirection = "right";
             rightPressed = true;
-        }
-        // update game state
-        if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-
-            if (game.gameState == game.play) {
-                game.gameState = game.pause;
-                //game.ui.showMessage("PAUSED");
-            }
-            else if (game.gameState == game.pause) {
-                game.gameState = game.play;
-            }
         }
 
 

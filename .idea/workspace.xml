@@ -9,9 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="141d667a-6ba6-42dc-8466-178da7f5c559" name="Changes" comment="-added new title screen">
+    <list default="true" id="141d667a-6ba6-42dc-8466-178da7f5c559" name="Changes" comment="- added pause screen and pause function&#10;- change title screen function and background&#10;- modified main game loop">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Asteroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Spaceship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Spaceship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
@@ -123,14 +124,33 @@
       <option name="project" value="LOCAL" />
       <updated>1696604886443</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- added pause screen and pause function&#10;- change title screen function and background&#10;- modified main game loop">
+      <created>1696704930162</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696704930164</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="- added function to pause game state." />
     <MESSAGE value="- added method to restart the game. also few other changes were made." />
     <MESSAGE value="-added new title screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="-added new title screen" />
+    <MESSAGE value="- added pause screen and pause function&#10;- change title screen function and background&#10;- modified main game loop" />
+    <option name="LAST_COMMIT_MESSAGE" value="- added pause screen and pause function&#10;- change title screen function and background&#10;- modified main game loop" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Space_Shooter$Space_Shooter_jar.ic" NAME="Space Shooter.jar Coverage Results" MODIFIED="1694355737454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
