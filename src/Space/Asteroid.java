@@ -91,6 +91,8 @@ public class Asteroid extends SpaceObjects{
             g2D.drawImage(image, x, y, width, height, null);
         } else {
 
+            //game.playSE(1);
+
             int index = (sprite - 1);
             BufferedImage image = hit[index];
             g2D.drawImage(image, x, y, width, height, null);

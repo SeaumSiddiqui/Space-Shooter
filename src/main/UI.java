@@ -31,7 +31,7 @@ public class UI {
             assert fontPath1 != null;
             LLPIXEL3 = Font.createFont(Font.TRUETYPE_FONT, fontPath1);
 
-            scoreFont = LLPIXEL3.deriveFont(game.tileSize / 3f);
+            scoreFont = LLPIXEL3.deriveFont(Font.BOLD, game.tileSize / 3f);
 
 
             InputStream fontPath2 = getClass().getResourceAsStream("/fonts/MaruMonica.ttf");
@@ -77,9 +77,16 @@ public class UI {
 
     public void drawGameUI(Graphics2D g2D) {
 
+        int x = game.initTileSize * 2;
+        int y = game.screenHeight - game.initTileSize * 2;
+
         g2D.setFont(scoreFont);
         g2D.setColor(Color.WHITE);
-        g2D.drawString("Score: 1083", game.screenWidth - game.tileSize * 3, game.tileSize / 2); // Display the score at coordinates (200, 100)
+        g2D.drawString(String.format("SCORE : %.2f", game.score), x, y);// display score on game screen
+
+        y = game.initTileSize;
+        int width = game.tileSize / 2;
+        int height = game.tileSize / 2;
 
         BufferedImage image1 = null;
         BufferedImage image2 = null;
@@ -98,11 +105,9 @@ public class UI {
             case "1Left" -> image1 = heart;
         }
 
-            g2D.drawImage(image1, game.initTileSize, game.screenHeight - game.tileSize, game.tileSize / 2, game.tileSize / 2, null);
-
-            g2D.drawImage(image2, game.initTileSize * 3, game.screenHeight - game.tileSize, game.tileSize / 2, game.tileSize / 2, null);
-
-            g2D.drawImage(image3, game.initTileSize * 5, game.screenHeight - game.tileSize, game.tileSize / 2, game.tileSize / 2, null);
+        g2D.drawImage(image3, game.screenWidth - width * 4, y, width, height, null);
+        g2D.drawImage(image2, game.screenWidth - width * 3, y, width, height, null);
+        g2D.drawImage(image1, game.screenWidth - width * 2, y, width, height, null);
     }
 
     public void drawPauseUI (Graphics2D g2D) {
@@ -208,7 +213,18 @@ public class UI {
         g2D.setColor(new Color(0xC71111));
         g2D.drawString(text, x, y);
 
+        // show score
+        String scoreText = String.format("Your Score: %.2f", game.score);
+        g2D.setFont(menuFont);
 
+        x =  getXonCenter(scoreText);
+        y = (int) (game.tileSize * 8);
+
+        g2D.setColor(Color.LIGHT_GRAY);
+        g2D.drawString(scoreText, x, y);// display final score
+
+
+        // show message
         showMessage("press R to restart");
         g2D.setFont(menuFont);
 
@@ -216,7 +232,7 @@ public class UI {
         y = (int) (game.tileSize * 5.8);
 
 
-        g2D.setColor(Color.WHITE);
+        g2D.setColor(Color.white);
         g2D.drawString(message, x, y);
     }
 

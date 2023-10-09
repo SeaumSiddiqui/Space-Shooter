@@ -1,6 +1,5 @@
 package main;
 
-import com.sun.source.tree.SynchronizedTree;
 import space.*;
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +17,7 @@ public class GameFrame extends JPanel implements Runnable {
     public final int screenWidth = tileSize* maxScreenCol; //1024px
     public final int screenHeight = tileSize * maxScreenRow; //640px
     public final int FPS = 60; //60 frames per second
+    public double score = 0;
 
     // game state
     public int gameState;
@@ -147,6 +147,7 @@ public class GameFrame extends JPanel implements Runnable {
                 if (asteroid.intersects(rocket)) {
                     asteroid.takeDamage(rocket.getDamage());
                     rocket.setDead(true);
+                    score+= 2;
                 }
             }
             // check collision between rocket and UFO
@@ -155,6 +156,7 @@ public class GameFrame extends JPanel implements Runnable {
                 if (ufo.intersects(rocket)) {
                     ufo.takeDamage(rocket.getDamage());
                     rocket.setDead(true);
+                    score+= 2;
                 }
             }
             // check collision between rocket and bomb
@@ -163,6 +165,7 @@ public class GameFrame extends JPanel implements Runnable {
                 if (bomb.intersects(rocket)) {
                     bomb.takeDamage(rocket.getDamage());
                     rocket.setDead(true);
+                    score++;
                 }
             }
         }
@@ -305,7 +308,7 @@ public class GameFrame extends JPanel implements Runnable {
         gameState = play; // set the game state to "play"
         ship.health = 999; // set player health to full
         ship.setDead(false); // mark player as alive
-        // score = 0;
+        score = 0;
 
         // reset the spaceship
         spaceshipSpawn();

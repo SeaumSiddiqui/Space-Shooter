@@ -119,6 +119,13 @@ public class KeyHandler implements KeyListener {
             rocketFireY = true;
             lastYFireTime = System.currentTimeMillis();
         }
+
+        // temp
+        if (game.gameState == game.play) {
+            if (e.getKeyCode() == KeyEvent.VK_M) {
+                game.stopMusic();
+            }
+        }
     }
 
     @Override

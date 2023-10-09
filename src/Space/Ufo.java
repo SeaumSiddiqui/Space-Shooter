@@ -138,7 +138,7 @@ public class Ufo extends SpaceObjects{
 
     public void dropBomb() {
 
-        if (!isExploded && game.gameState == game.play && game.ufo.size() > 0)
+        if (!isExploded && game.gameState == game.play)
             game.getBombs().add(new Bomb(getX(), getY(), width, height, 111, 333, 0, this));
     }
 
@@ -159,6 +159,8 @@ public class Ufo extends SpaceObjects{
             }
 
         } else {
+
+            //game.playSE(2);
 
             int index = (sprite - 1);
             image = spark[index];

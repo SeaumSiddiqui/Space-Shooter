@@ -9,10 +9,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="141d667a-6ba6-42dc-8466-178da7f5c559" name="Changes" comment="- added pause screen and pause function&#10;- change title screen function and background&#10;- modified main game loop">
+    <list default="true" id="141d667a-6ba6-42dc-8466-178da7f5c559" name="Changes" comment="- minor changes on title screen and pause screen UI.&#10;- added ending screen and restart method.">
+      <change afterPath="$PROJECT_DIR$/resources/space/bg-planet1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/bg-planet2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/bg-space1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/bg-space2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/bg-stars1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/bg-stars2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Space/Spaceship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Spaceship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/bg4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/bg7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/image1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/image2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/image3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/image4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/image5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/space/image6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Asteroid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Space/Ufo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
@@ -69,7 +84,7 @@
       <recent name="C:\Users\SUCCESS\IdeaProjects\Space Shooter\.idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JAR Application.Space Shooter.jar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Space Shooter" />
@@ -89,8 +104,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JAR Application.Space Shooter.jar" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696704930164</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="- minor changes on title screen and pause screen UI.&#10;- added ending screen and restart method.">
+      <created>1696768929802</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696768929802</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,7 +172,8 @@
     <MESSAGE value="- added method to restart the game. also few other changes were made." />
     <MESSAGE value="-added new title screen" />
     <MESSAGE value="- added pause screen and pause function&#10;- change title screen function and background&#10;- modified main game loop" />
-    <option name="LAST_COMMIT_MESSAGE" value="- added pause screen and pause function&#10;- change title screen function and background&#10;- modified main game loop" />
+    <MESSAGE value="- minor changes on title screen and pause screen UI.&#10;- added ending screen and restart method." />
+    <option name="LAST_COMMIT_MESSAGE" value="- minor changes on title screen and pause screen UI.&#10;- added ending screen and restart method." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Space_Shooter$Space_Shooter_jar.ic" NAME="Space Shooter.jar Coverage Results" MODIFIED="1694355737454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
