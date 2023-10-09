@@ -9,14 +9,14 @@ import java.util.List;
 public class GameFrame extends JPanel implements Runnable {
 
     // Screen settings
-    public final int initTileSize = 16; //16x16 tile
+    public final int initTileSize = 16; // 16x16 tile
     public final int scale = 4;
     public final int maxScreenCol = 16;
     public final int maxScreenRow = 10;
-    public final int tileSize = initTileSize * scale; //64x64 tile
-    public final int screenWidth = tileSize* maxScreenCol; //1024px
-    public final int screenHeight = tileSize * maxScreenRow; //640px
-    public final int FPS = 60; //60 frames per second
+    public final int tileSize = initTileSize * scale; // 64x64 tile
+    public int screenWidth = tileSize * maxScreenCol; // 1024px initial
+    public int screenHeight = tileSize * maxScreenRow; // 640px initial
+    public final int FPS = 60; // 60 frames per second
     public double score = 0;
 
     // game state
@@ -39,7 +39,7 @@ public class GameFrame extends JPanel implements Runnable {
     UI ui = new UI(this);
 
     // spaceship
-    public Spaceship  ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
+    public Spaceship ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
             tileSize, 999, 999, 8, keyH, this);
 
     // UFO
@@ -63,8 +63,25 @@ public class GameFrame extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
 
+    public void startGame() {
+
+        setGameScreen();
         gameState = titleState;
+        gameThread = new Thread(this);
+        gameThread.start();
+    }
+
+    public void setGameScreen() {
+
+        // get local screen device info
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+
+        gd.setFullScreenWindow(Main.window);
+        screenWidth = Main.window.getWidth();
+        screenHeight = Main.window.getHeight();
     }
 
     public List<SpaceObjects> getObjects() {
@@ -75,12 +92,6 @@ public class GameFrame extends JPanel implements Runnable {
         list.addAll(bombs);
         list.addAll(ufo);
         return list;
-    }
-
-    public void startGame() {
-
-        gameThread = new Thread(this);
-        gameThread.start();
     }
 
     public void update() {

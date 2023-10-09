@@ -18,6 +18,7 @@ public class BackgroundSlideshow {
     public BackgroundSlideshow(GameFrame game) {
 
         this.game = game;
+
         getBackgroundImages();
         startSlideshow();
     }

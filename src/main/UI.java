@@ -113,7 +113,7 @@ public class UI {
     public void drawPauseUI (Graphics2D g2D) {
 
         int x = -1;
-        int y = game.tileSize * 3;
+        int y = game.tileSize * 4;
 
         g2D.setColor(Color.WHITE);
         g2D.drawRect(x, y,game.screenWidth+1, game.screenHeight / 3);
@@ -122,7 +122,7 @@ public class UI {
         g2D.setFont(titleFont);
 
         x = getXonCenter(text);
-        y = game.tileSize * 5;
+        y = game.tileSize * 6;
 
         // text shadow
         g2D.setColor(Color.DARK_GRAY);
@@ -136,7 +136,7 @@ public class UI {
         g2D.setFont(menuFont);
 
         x = getXonCenter(message);
-        y = (int) (game.tileSize * 5.8);
+        y = (int) (game.tileSize * 6.9);
 
         g2D.setColor(Color.DARK_GRAY);
         g2D.drawString(message, x, y);
@@ -150,7 +150,7 @@ public class UI {
         g2D.setFont(titleFont);
 
         int x = getXonCenter(text);
-        int y = game.tileSize * 3;
+        int y = (game.tileSize * 4);
 
         // text shadow
         g2D.setColor(Color.DARK_GRAY);
@@ -164,7 +164,7 @@ public class UI {
 
         text = "Start Game";
         x = getXonCenter(text);
-        y = game.tileSize * 5;
+        y = game.tileSize * 7;
         g2D.drawString(text, x, y);
 
         if (game.keyH.commandNum == 0) {
@@ -174,7 +174,7 @@ public class UI {
 
         text = "Load Game";
         x = getXonCenter(text);
-        y = game.tileSize * 6;
+        y = game.tileSize * 8;
         g2D.drawString(text, x, y);
 
         if (game.keyH.commandNum == 1) {
@@ -184,7 +184,7 @@ public class UI {
 
         text = "Quit";
         x = getXonCenter(text);
-        y = game.tileSize * 7;
+        y = game.tileSize * 9;
         g2D.drawString(text, x, y);
 
         if (game.keyH.commandNum == 2) {
@@ -195,7 +195,7 @@ public class UI {
     public void drawEndUI (Graphics2D g2D) {
 
         int x = -1;
-        int y = game.tileSize * 3;
+        int y = game.tileSize * 4;
 
         g2D.setColor(Color.DARK_GRAY);
         g2D.drawRect(x, y,game.screenWidth+1, game.screenHeight / 3);
@@ -204,7 +204,7 @@ public class UI {
         g2D.setFont(titleFont);
 
         x = getXonCenter(text);
-        y = game.tileSize * 5;
+        y = game.tileSize * 6;
 
         // text shadow
         g2D.setColor(Color.DARK_GRAY);
@@ -213,27 +213,25 @@ public class UI {
         g2D.setColor(new Color(0xC71111));
         g2D.drawString(text, x, y);
 
-        // show score
-        String scoreText = String.format("Your Score: %.2f", game.score);
-        g2D.setFont(menuFont);
-
-        x =  getXonCenter(scoreText);
-        y = (int) (game.tileSize * 8);
-
-        g2D.setColor(Color.LIGHT_GRAY);
-        g2D.drawString(scoreText, x, y);// display final score
-
-
         // show message
         showMessage("press R to restart");
         g2D.setFont(menuFont);
 
         x = getXonCenter(message);
-        y = (int) (game.tileSize * 5.8);
-
+        y = (int) (game.tileSize * 6.9);
 
         g2D.setColor(Color.white);
         g2D.drawString(message, x, y);
+
+        // show score
+        String scoreText = String.format("Your Score: %.2f", game.score);
+        g2D.setFont(menuFont);
+
+        x = getXonCenter(scoreText);
+        y = (game.tileSize * 9);
+
+        g2D.setColor(Color.LIGHT_GRAY);
+        g2D.drawString(scoreText, x, y);// display final score
     }
 
     public int getXonCenter(String text) {

@@ -9,13 +9,12 @@ public class KeyHandler implements KeyListener {
     public boolean upPressed, downPressed, leftPressed, rightPressed;
     public String playerDirection;
 
-    public boolean restartGame = false;
-
     public boolean rocketFireX = false;
     public boolean rocketFiredX = false;
 
     public boolean rocketFireY = false;
     public boolean yOnCooldown = false;
+
     public long lastYFireTime = 0;
     public long cooldownDuration;
 
@@ -121,10 +120,8 @@ public class KeyHandler implements KeyListener {
         }
 
         // temp
-        if (game.gameState == game.play) {
-            if (e.getKeyCode() == KeyEvent.VK_M) {
-                game.stopMusic();
-            }
+        if (e.getKeyCode() == KeyEvent.VK_M) {
+            game.stopMusic();
         }
     }
 
