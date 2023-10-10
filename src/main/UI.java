@@ -15,7 +15,7 @@ public class UI {
     BufferedImage heart;
 
     Font LLPIXEL3, MaruMonica;
-    Font scoreFont, messageFont, titleFont, menuFont;
+    Font scoreFont, optionFont, titleFont, menuFont;
     //public int commandNum = 0;
 
     public boolean showMessage = false;
@@ -40,7 +40,7 @@ public class UI {
 
             titleFont = MaruMonica.deriveFont(Font.BOLD, game.tileSize * 2f);
             menuFont = MaruMonica.deriveFont(Font.BOLD, game.tileSize / 2f);
-            messageFont = MaruMonica.deriveFont(Font.BOLD, game.tileSize * 10f);
+            optionFont = MaruMonica.deriveFont(Font.BOLD, game.tileSize);
 
 
             // load heart icons
@@ -62,20 +62,23 @@ public class UI {
         this.g2D = g2D;
 
         if (game.gameState == game.play) {
-            drawGameUI(g2D);
+            drawGameUI();
         }
         if (game.gameState == game.pause) {
-            drawPauseUI(g2D);
+            drawPauseUI();
+        }
+        if (game.gameState == game.option) {
+            drawOptionUI();
         }
         if (game.gameState == game.titleState) {
-            drawTitleUI(g2D);
+            drawTitleUI();
         }
         if (game.gameState == game.gameOver) {
-            drawEndUI(g2D);
+            drawEndUI();
         }
     }
 
-    public void drawGameUI(Graphics2D g2D) {
+    public void drawGameUI() {
 
         int x = game.initTileSize * 2;
         int y = game.screenHeight - game.initTileSize * 2;
@@ -110,7 +113,7 @@ public class UI {
         g2D.drawImage(image1, game.screenWidth - width * 2, y, width, height, null);
     }
 
-    public void drawPauseUI (Graphics2D g2D) {
+    public void drawPauseUI () {
 
         int x = -1;
         int y = game.tileSize * 4;
@@ -143,7 +146,88 @@ public class UI {
 
     }
 
-    public void drawTitleUI(Graphics2D g2D) {
+    public void drawOptionUI() {
+
+        // sub window
+        int frameWidth = game.tileSize * game.maxScreenCol;
+        int frameHeight = game.tileSize * game.maxScreenRow;
+        int frameX = game.screenWidth/2 - frameWidth/2;
+        int frameY = game.screenHeight/2 - frameHeight/2;
+        int edge = 25;
+
+        g2D.setColor(new Color(0, 0, 0, 80));
+        g2D.fillRoundRect(frameX, frameY, frameWidth, frameHeight, edge , edge);
+
+        // top text
+        String text = "Options";
+        g2D.setFont(optionFont);
+
+        int x = getXonCenter(text);
+        int y = frameY + game.tileSize;
+
+        g2D.setColor(Color.white);
+        g2D.drawString(text, x, y);
+
+
+        // options text
+        x = frameX + game.tileSize;
+        g2D.setFont(menuFont);
+
+        // draw music
+        y = frameY + game.tileSize * 3;
+        g2D.drawString("Music Volume ", x, y);
+
+        if (game.keyH.commandNum == 0) {
+            g2D.drawString(">", x - game.tileSize / 2, y);
+        }
+
+
+        // draw sound effect
+        y = frameY + game.tileSize * 4;
+        g2D.drawString("Sound Effect ", x, y);
+
+        if (game.keyH.commandNum == 1) {
+
+            g2D.drawString(">", x - game.tileSize / 2, y);
+        }
+
+        y = frameY + game.tileSize * 5;
+        g2D.drawString("Main Menu ", x, y);
+
+        if (game.keyH.commandNum == 2) {
+
+            g2D.drawString(">", x - game.tileSize / 2, y);
+        }
+
+
+        // draw quit game
+        y = frameY + game.tileSize * 7;
+        g2D.drawString("Quit ", x, y);
+
+        if (game.keyH.commandNum == 3) {
+            g2D.drawString(">", x - game.tileSize / 2, y);
+        }
+
+        // draw slider
+        x *= 2;
+        y = frameY + game.tileSize * 3;
+        // music slider shadow
+        int musicWidth = 100 * game.music.volumeScale;
+        g2D.setColor(new Color(0x6161C4));
+        g2D.fillRoundRect(x, y - 20, musicWidth, 20, 25, 25);
+        //music slider
+        g2D.drawRoundRect(x, y - 20, 500, 20, 25, 25); // 500/5 = 100
+
+        // effect slider shadow
+        y = frameY + game.tileSize * 4;
+        int effectWidth = 100 * game.effect.volumeScale;
+        g2D.setColor(new Color(0x6161C4));
+        g2D.fillRoundRect(x, y - 20, effectWidth, 20, 25, 25);
+        // effect slider
+        g2D.drawRoundRect(x, y - 20, 500, 20, 25, 25);
+    }
+
+    public void drawTitleUI() {
 
         // game title
         String text = "Space Shooter";
@@ -192,7 +276,7 @@ public class UI {
         }
     }
 
-    public void drawEndUI (Graphics2D g2D) {
+    public void drawEndUI () {
 
         int x = -1;
         int y = game.tileSize * 4;

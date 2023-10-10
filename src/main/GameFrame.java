@@ -21,6 +21,7 @@ public class GameFrame extends JPanel implements Runnable {
 
     // game state
     public int gameState;
+    public final int option = 4;
     public final int play = 3;
     public final int pause = 2;
     public final int gameOver = 1;
@@ -30,7 +31,8 @@ public class GameFrame extends JPanel implements Runnable {
     BackgroundSlideshow slideshow = new BackgroundSlideshow(this);
 
     // game sound
-    GameSound sound = new GameSound();
+    GameSound music = new GameSound();
+    GameSound effect = new GameSound();
 
     // initialize KeyHandler
     KeyHandler keyH = new KeyHandler(this);
@@ -306,6 +308,7 @@ public class GameFrame extends JPanel implements Runnable {
     }
 
     public void restart() {
+        playMusic(0);
         // clear all objects lists
         rockets.clear();
         bombs.clear();
@@ -328,18 +331,18 @@ public class GameFrame extends JPanel implements Runnable {
 
     // play background music
     public void playMusic(int i) {
-        sound.setFile(i);
-        sound.play();
-        sound.loop();
+        music.setFile(i);
+        music.play();
+        music.loop();
     }
 
     public void stopMusic() {
-        sound.stop();
+        music.stop();
     }
     // play sound effects
     public void playSE(int i) {
-        sound.setFile(i);
-        sound.play();
+        effect.setFile(i);
+        effect.play();
     }
 
     public List<Rocket> getRockets() {

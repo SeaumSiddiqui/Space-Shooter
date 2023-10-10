@@ -37,9 +37,10 @@ public class KeyHandler implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
 
-        // title screen
+        // title state
         if (game.gameState == game.titleState) {
 
+            // move the cursor around
             if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
                 commandNum--;
                 if (commandNum < 0) {
@@ -66,28 +67,91 @@ public class KeyHandler implements KeyListener {
             }
         }
 
-
-        // pause game state
+        // option state
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 
             if (game.gameState == game.play) {
-                game.gameState = game.pause;
-                //game.ui.showMessage("PAUSED");
+                game.gameState = game.option;
             }
-            else if (game.gameState == game.pause) {
+            else if (game.gameState == game.option) {
                 game.gameState = game.play;
             }
         }
 
+        if (game.gameState == game.option) {
+            // move the cursor around
+            if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
+                commandNum--;
+                if (commandNum < 0) {
+                    commandNum = 3;
+                }
+            }
+            if (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
+                commandNum++;
+                if (commandNum > 3) {
+                    commandNum = 0;
+                }
+            }
 
-        // restart game
+            // increase volume
+            if (e.getKeyCode() == KeyEvent.VK_PAGE_UP) {
+                // music volume
+                if (commandNum == 0 && game.music.volumeScale < 5) {
+                    game.music.volumeScale++;
+                    game.music.checkVolume();
+                }// effect volume
+                if (commandNum == 1 && game.effect.volumeScale < 5) {
+                    game.effect.volumeScale++;
+                }
+            }
+
+            // decrease volume
+            if (e.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
+                // music volume
+                if (commandNum == 0 && game.music.volumeScale > 0) {
+                    game.music.volumeScale--;
+                    game.music.checkVolume();
+                }// effect volume
+                if (commandNum == 1 && game.effect.volumeScale > 0) {
+                    game.effect.volumeScale--;
+                }
+            }
+
+            // quit from game
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+
+                if (commandNum == 2) {
+                    game.music.stop();
+                    game.gameState = game.titleState;
+                }
+                if (commandNum == 3) {
+                    System.exit(0);
+                }
+            }
+        }
+
+        // pause state
+        if (e.getKeyCode() == KeyEvent.VK_P) {
+
+            if (game.gameState == game.play) {
+                game.stopMusic();
+                game.gameState = game.pause;
+            }
+            else if (game.gameState == game.pause) {
+                game.playMusic(0);
+                game.gameState = game.play;
+            }
+        }
+
+        // game over state
         if (game.gameState == game.gameOver) {
+
+            // restart game
             if (e.getKeyCode() == KeyEvent.VK_R) {
                 game.restart();
                 game.gameState = game.play;
             }
         }
-
 
         // spacecraft control
         if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
