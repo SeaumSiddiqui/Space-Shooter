@@ -47,23 +47,6 @@ public class Bomb extends SpaceObjects {
     public void getBombImg() {
 
         try{
-            // left rotation
-//            bombUp = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/up.png")));
-//            bombUpLeft = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/uLeft.png")));
-//
-//            bombLeft = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/left.png")));
-//            bombDownLeft = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/dLeft.png")));
-//
-//            bombDown= ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/down.png")));
-//            bombDownRight = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/dRight.png")));
-//
-//            bombRight = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/right.png")));
-//            bombUpRight = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombLeft/uRight.png")));
-//
-//            bombLeftImg = new BufferedImage[]{bombUp, bombDown, bombLeft, bombRight, bombUpLeft, bombUpRight, bombDownLeft, bombDownRight};
-
-
-
 
             bombLeft1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombL/left1.png")));
             bombLeft2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombL/left2.png")));
@@ -75,9 +58,6 @@ public class Bomb extends SpaceObjects {
             bombRight2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/fire/bombR/right2.png")));
 
             bombRightImg = new BufferedImage[]{bombRight1, bombRight2};
-
-
-//            bombRightImg = new BufferedImage[]{bombUp, bombDown, bombLeft, bombRight, bombUpLeft, bombUpRight, bombDownLeft, bombDownRight};
 
             // explosion animation
             explosion1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/hit/hit1.png")));

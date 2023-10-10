@@ -44,14 +44,14 @@ public class Ufo extends SpaceObjects{
 
         if (randomXDirection == 0)
             randomXDirection--;
-        setXDirection((int) (randomXDirection * speed));
+        setXDirection(randomXDirection * speed);
 
         // ufo y direction
         int randomYDirection = random.nextInt(2);
 
         if (randomYDirection == 0)
             randomYDirection--;
-        setYDirection((int) (randomYDirection * speed));
+        setYDirection(randomYDirection * speed);
 
 
         getUfoImg();
@@ -61,8 +61,7 @@ public class Ufo extends SpaceObjects{
 
         try{
             // UFO
-            ufo1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/ufo/left.png")));
-            ufo2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/ufo/right.png")));
+            ufo = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/ufo/ufo.png")));
 
             // hit animation
             spark1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/ufo/spark/spark1.png")));
@@ -88,15 +87,7 @@ public class Ufo extends SpaceObjects{
         if (xVelocity > 0) {
             return "right";
         }
-        if (yVelocity < 0) {
-            return "up";
-        }
-        if (yVelocity > 0) {
-            return "down";
-        }
-        else {
-            return "stationary";
-        }
+        return null;
     }
 
     private void setXDirection(int randomXDirection) {
@@ -144,20 +135,11 @@ public class Ufo extends SpaceObjects{
 
     public void draw(Graphics2D g2D) {
 
-        BufferedImage image = null;
+        BufferedImage image;
 
         if (!isExploded) {
 
-            switch (getDirection()) {
-
-                case "left" -> {
-                    image = ufo1;
-                }
-                case "right" -> {
-                    image = ufo2;
-                }
-            }
-
+            image = ufo;
         } else {
 
             //game.playSE(2);
@@ -171,6 +153,6 @@ public class Ufo extends SpaceObjects{
             }
         }
 
-        g2D.drawImage(image, x, y, width, height, null);
+        g2D.drawImage(image, x, y, width, height / 2, null);
     }
 }

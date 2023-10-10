@@ -35,17 +35,17 @@ public class SpaceObjects {
 
     // bomb
     BufferedImage bombUp, bombDown, bombLeft, bombRight, bombUpLeft, bombUpRight, bombDownLeft, bombDownRight,
-            explosion1, explosion2, explosion3, explosion4, explosion5, explosion6, explosion7, explosion8,
-            bombLeft1, bombLeft2, bombRight1, bombRight2  ;
+                  explosion1, explosion2, explosion3, explosion4, explosion5, explosion6, explosion7, explosion8,
+                  bombLeft1, bombLeft2, bombRight1, bombRight2  ;
 
 
     // UFO
-    BufferedImage ufo1, ufo2;
+    BufferedImage ufo;
     BufferedImage spark1, spark2, spark3, spark4;
 
     // asteroid
-    BufferedImage asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5,
-            hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8;
+    BufferedImage asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5, asteroidImg6,
+                  hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8;
 
     public int getX() {
         return x;

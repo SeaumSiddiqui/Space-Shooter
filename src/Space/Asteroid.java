@@ -37,6 +37,7 @@ public class Asteroid extends SpaceObjects{
             asteroidImg3 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid3.png")));
             asteroidImg4 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid4.png")));
             asteroidImg5 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid5.png")));
+            asteroidImg6 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid6.png")));
 
             // hit animation
             hit1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/hit/hit1.png")));
@@ -52,7 +53,7 @@ public class Asteroid extends SpaceObjects{
             hit = new BufferedImage[]{hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8};
 
             // add asteroid images to an array
-            BufferedImage[] asteroidImg = {asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5};
+            BufferedImage[] asteroidImg = {asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5, asteroidImg6};
             Random random = new Random();
             return asteroidImg[random.nextInt(asteroidImg.length)];
 
