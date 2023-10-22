@@ -67,37 +67,37 @@ public class BackgroundSlideshow {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                xOffsetSpace += (int)1;
+                xOffsetSpace += 1;
                 if (xOffsetSpace >= game.screenWidth) {
                     xOffsetSpace = 0;
                     currentIndexSpace = (currentIndexSpace + 1) % spaceImage.length;
                 }
             }
-        }, 0, 60); // Adjust the delay to control slideshow speed
+        }, 0, 59); // Adjust the delay to control slideshow speed
 
         // background stars
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                xOffsetStars += 1.6;
+                xOffsetStars += (int) 1.7;
                 if (xOffsetStars >= game.screenWidth) {
                     xOffsetStars = 0;
                     currentIndexStars = (currentIndexStars + 1) % starImage.length;
                 }
             }
-        }, 0, 45); // Adjust the delay to control slideshow speed
+        }, 0, 42); // Adjust the delay to control slideshow speed
 
         // background planet
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                xOffsetPlanet += 1.8;
+                xOffsetPlanet += (int) 1.9;
                 if (xOffsetPlanet >= game.screenWidth) {
                     xOffsetPlanet = 0;
                     currentIndexPlanet = (currentIndexPlanet + 1) % planetImage.length;
                 }
             }
-        }, 0, 40); // Adjust the delay to control slideshow speed
+        }, 0, 31); // Adjust the delay to control slideshow speed
     }
 
     public void draw(Graphics2D g2D) {

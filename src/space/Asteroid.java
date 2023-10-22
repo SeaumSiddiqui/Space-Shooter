@@ -38,6 +38,8 @@ public class Asteroid extends SpaceObjects{
             asteroidImg4 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid4.png")));
             asteroidImg5 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid5.png")));
             asteroidImg6 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid6.png")));
+            asteroidImg7 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid7.png")));
+            asteroidImg8 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/asteroid8.png")));
 
             // hit animation
             hit1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/asteroid/hit/hit1.png")));

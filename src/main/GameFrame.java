@@ -17,7 +17,8 @@ public class GameFrame extends JPanel implements Runnable {
     public int screenWidth = tileSize * maxScreenCol; // 1024px initial
     public int screenHeight = tileSize * maxScreenRow; // 640px initial
     public final int FPS = 60; // 60 frames per second
-    public double score = 0;
+    public double score;
+    public double highestScore;
 
     // game state
     public int gameState;
@@ -31,8 +32,8 @@ public class GameFrame extends JPanel implements Runnable {
     BackgroundSlideshow slideshow = new BackgroundSlideshow(this);
 
     // game sound
-    GameSound music = new GameSound();
     GameSound effect = new GameSound();
+    GameSound music = new GameSound();
 
     // initialize KeyHandler
     KeyHandler keyH = new KeyHandler(this);
@@ -40,6 +41,8 @@ public class GameFrame extends JPanel implements Runnable {
     // UI
     UI ui = new UI(this);
 
+    // config
+    Config config = new Config(this);
     // spaceship
     public Spaceship ship = new Spaceship(0, screenHeight / 2 - tileSize, tileSize,
             tileSize, 999, 999, 8, keyH, this);
@@ -137,17 +140,19 @@ public class GameFrame extends JPanel implements Runnable {
     // TO-DO
     public void ufoSpawn() {
 
-        if (ufo.size() > 0) return;
+        if (ufo.size() >= 5) return;
 
         Random randomUfo = new Random();
-        double spawnProbability = 0.0050;
-        // 0.50% chance of spawn in each iteration
-        // 5 spawn in every 1000 iteration
+
+        double spawnProbability = 0.0040;
+        int x = screenWidth - tileSize * 2;
+        int y = (screenHeight / 2) - randomUfo.nextInt(tileSize * 4);
+
+        // 0.40% chance of spawn in each iteration
+        // 4 spawn in every 1000 iteration
         if (randomUfo.nextDouble() < spawnProbability) {
 
-            ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2),tileSize, tileSize, 555, 333, 2, this));
-            ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2 + tileSize),tileSize, tileSize, 555, 333, 2, this));
-            ufo.add(new Ufo(screenWidth - tileSize * 2, (int)(Math.random() * screenHeight/2 + (tileSize * 4)),tileSize, tileSize, 555, 333, 2, this));
+            ufo.add(new Ufo(x, y,tileSize, tileSize, 555, 333, 2, this));
         }
     }
 
@@ -178,6 +183,8 @@ public class GameFrame extends JPanel implements Runnable {
                 if (bomb.intersects(rocket)) {
                     bomb.takeDamage(rocket.getDamage());
                     rocket.setDead(true);
+
+                    playSE(1);
                     score++;
                 }
             }
@@ -185,20 +192,27 @@ public class GameFrame extends JPanel implements Runnable {
     }
 
     public void checkBomb() {
-        // check collision between bombs and the spaceship
-        for (Bomb bomb: bombs) {
-            // check collision between bomb and asteroid
+
+        Iterator<Bomb> bombIterator = bombs.iterator();
+
+        while (bombIterator.hasNext()) {
+            Bomb bomb = bombIterator.next();
+
+            // check collision between bombs and asteroids
             for (Asteroid asteroid: asteroids) {
                 if (asteroid.intersects(bomb)) {
                     asteroid.takeDamage(bomb.getDamage());
                     bomb.takeDamage(asteroid.getDamage());
+                    bombIterator.remove(); // Remove the bomb from the list
                 }
             }
             // check collision between bomb and spaceship
             if (ship.intersects(bomb)) {
                 ship.takeDamage(bomb.getDamage());
                 bomb.takeDamage(ship.getDamage());
+                playSE(1);
                 spaceshipSpawn();
+                bombIterator.remove(); // Remove the bomb from the list
             }
         }
     }
@@ -209,6 +223,8 @@ public class GameFrame extends JPanel implements Runnable {
             if (ship.intersects(ufo)) {
                 ship.takeDamage(ufo.getDamage());
                 ufo.takeDamage(ship.getDamage());
+
+                playSE(2);
                 spaceshipSpawn();
             }
         }
@@ -219,6 +235,8 @@ public class GameFrame extends JPanel implements Runnable {
             if (ship.intersects(asteroid)) {
                 ship.takeDamage(asteroid.getDamage());
                 asteroid.takeDamage(ship.getDamage());
+
+                playSE(1);
                 spaceshipSpawn();
             }
         }
@@ -244,10 +262,10 @@ public class GameFrame extends JPanel implements Runnable {
 
     public void removeDead() {
 
-        rockets.removeIf(SpaceObjects::isDead);
-        asteroids.removeIf(SpaceObjects::isDead);
         ufo.removeIf(SpaceObjects::isDead);
         bombs.removeIf(SpaceObjects::isDead);
+        rockets.removeIf(SpaceObjects::isDead);
+        asteroids.removeIf(SpaceObjects::isDead);
     }
 
     public void paintComponent(Graphics g) {
@@ -265,7 +283,7 @@ public class GameFrame extends JPanel implements Runnable {
                 try {
                     object.draw(g2D);
                 } catch (Exception e) {
-                    e.printStackTrace();
+                    System.out.println("error: " + e);
                 }
             }
 
@@ -308,12 +326,20 @@ public class GameFrame extends JPanel implements Runnable {
     }
 
     public void restart() {
+        // background music
         playMusic(0);
+
         // clear all objects lists
         rockets.clear();
         bombs.clear();
         asteroids.clear();
+        // cancel timers associated with UFOs and clear the UFO list
+        for (Ufo ufo: ufo){
+            ufo.cancelBombTimer();
+        }
         ufo.clear();
+
+        // mark all objects dead
         for (SpaceObjects object : getObjects()) {
             object.setDead(true);
         }
@@ -327,7 +353,6 @@ public class GameFrame extends JPanel implements Runnable {
         // reset the spaceship
         spaceshipSpawn();
     }
-
 
     // play background music
     public void playMusic(int i) {

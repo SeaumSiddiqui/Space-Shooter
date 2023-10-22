@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class UI {
     GameFrame game;
-    BufferedImage heart;
+    BufferedImage heart1, heart2, astronaut;
 
     Font LLPIXEL3, MaruMonica;
     Font scoreFont, optionFont, titleFont, menuFont;
@@ -26,7 +26,7 @@ public class UI {
         this.game = game;
 
         try {
-            // Load the custom font using Font.TRUETYPE_FONT
+            // Load the custom font using Font.TRUE-TYPE FONT
             InputStream fontPath1 = getClass().getResourceAsStream("/fonts/LLPIXEL3.ttf");
             assert fontPath1 != null;
             LLPIXEL3 = Font.createFont(Font.TRUETYPE_FONT, fontPath1);
@@ -44,7 +44,9 @@ public class UI {
 
 
             // load heart icons
-            heart = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player sprites/heart2.png")));
+            heart1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/space/heart1.png")));
+            heart2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/space/heart2.png")));
+            astronaut = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/space/astronaut.png")));
 
         } catch (FontFormatException | IOException e) {
             throw new RuntimeException(e);
@@ -80,16 +82,29 @@ public class UI {
 
     public void drawGameUI() {
 
+        // draw score
         int x = game.initTileSize * 2;
         int y = game.screenHeight - game.initTileSize * 2;
 
         g2D.setFont(scoreFont);
         g2D.setColor(Color.WHITE);
-        g2D.drawString(String.format("SCORE : %.2f", game.score), x, y);// display score on game screen
+        g2D.drawString(String.format("SCORE : %.2f", game.score), x, y);
 
-        y = game.initTileSize;
+
+
+
+        // draw astronaut
+        x = game.screenWidth - game.tileSize * 4;
+        y = game.screenHeight - game.tileSize;
+
+        g2D.drawImage(astronaut, x, y, null);
+
+        // draw hearts
         int width = game.tileSize / 2;
         int height = game.tileSize / 2;
+
+        x += game.tileSize;
+        y = game.screenHeight - game.initTileSize * 3;
 
         BufferedImage image1 = null;
         BufferedImage image2 = null;
@@ -97,20 +112,25 @@ public class UI {
 
         switch (game.ship.playerHealth) {
             case "max" -> {
-                image1 = heart;
-                image2 = heart;
-                image3 = heart;
+                image1 = heart1;
+                image2 = heart1;
+                image3 = heart1;
             }
             case "2Left" -> {
-                image1 = heart;
-                image2 = heart;
+                image1 = heart2;
+                image2 = heart1;
+                image3 = heart1;
             }
-            case "1Left" -> image1 = heart;
+            case "1Left" -> {
+                image1 = heart2;
+                image2 = heart2;
+                image3 = heart1;
+            }
         }
 
-        g2D.drawImage(image3, game.screenWidth - width * 4, y, width, height, null);
-        g2D.drawImage(image2, game.screenWidth - width * 3, y, width, height, null);
-        g2D.drawImage(image1, game.screenWidth - width * 2, y, width, height, null);
+        g2D.drawImage(image3, x + game.initTileSize, y, width, height, null);
+        g2D.drawImage(image2, x + game.initTileSize * 3, y, width, height, null);
+        g2D.drawImage(image1, x + game.initTileSize * 5, y, width, height, null);
     }
 
     public void drawPauseUI () {
@@ -201,8 +221,10 @@ public class UI {
 
 
         // draw quit game
-        y = frameY + game.tileSize * 7;
+        y = frameY + game.tileSize * 8;
         g2D.drawString("Quit ", x, y);
+
+
 
         if (game.keyH.commandNum == 3) {
             g2D.drawString(">", x - game.tileSize / 2, y);
@@ -212,19 +234,21 @@ public class UI {
         x *= 2;
         y = frameY + game.tileSize * 3;
         // music slider shadow
-        int musicWidth = 100 * game.music.volumeScale;
+        int musicWidth = 50 * game.music.volumeScale; // 500/10 = 50
         g2D.setColor(new Color(0x6161C4));
         g2D.fillRoundRect(x, y - 20, musicWidth, 20, 25, 25);
         //music slider
-        g2D.drawRoundRect(x, y - 20, 500, 20, 25, 25); // 500/5 = 100
+        g2D.drawRoundRect(x, y - 20, 500, 20, 25, 25);
 
         // effect slider shadow
         y = frameY + game.tileSize * 4;
-        int effectWidth = 100 * game.effect.volumeScale;
+        int effectWidth = 50 * game.effect.volumeScale; // 500/10 = 50
         g2D.setColor(new Color(0x6161C4));
         g2D.fillRoundRect(x, y - 20, effectWidth, 20, 25, 25);
         // effect slider
         g2D.drawRoundRect(x, y - 20, 500, 20, 25, 25);
+
+        game.config.saveConfig();
     }
 
     public void drawTitleUI() {
@@ -294,7 +318,7 @@ public class UI {
         g2D.setColor(Color.DARK_GRAY);
         g2D.drawString(text, x+5, y+5);
         // main text
-        g2D.setColor(new Color(0xC71111));
+        g2D.setColor(new Color(253, 101, 11, 255));
         g2D.drawString(text, x, y);
 
         // show message
@@ -308,14 +332,49 @@ public class UI {
         g2D.drawString(message, x, y);
 
         // show score
-        String scoreText = String.format("Your Score: %.2f", game.score);
-        g2D.setFont(menuFont);
+        if (game.score >= game.highestScore) {
 
-        x = getXonCenter(scoreText);
-        y = (game.tileSize * 9);
+            showMessage("Congratulation, New Highest Score");
 
-        g2D.setColor(Color.LIGHT_GRAY);
-        g2D.drawString(scoreText, x, y);// display final score
+            x = getXonCenter(message);
+            y = game.tileSize * 9;
+
+            g2D.setColor(new Color(243, 242, 220, 255));
+            g2D.drawString(message, x, y);
+
+            String scoreText = String.format("Your Score: %.2f", game.score);
+
+            x = getXonCenter(scoreText);
+            y = game.tileSize * 10;
+
+            g2D.setColor(Color.WHITE);
+            g2D.drawString(scoreText, x, y);
+
+            game.highestScore = game.score;
+            game.config.saveConfig();
+        }
+        else {
+
+            // display final score
+            String scoreText = String.format("Your Score: %.2f", game.score);
+            g2D.setFont(menuFont);
+
+            x = getXonCenter(scoreText);
+            y = game.tileSize * 9;
+
+            g2D.setColor(Color.LIGHT_GRAY);
+            g2D.drawString(scoreText, x, y);
+
+            // display the highest score
+            scoreText = String.format("Highest Score: %.2f", game.highestScore);
+
+            x = getXonCenter(scoreText);
+            y = game.tileSize * 10;
+
+            g2D.setColor(Color.WHITE);
+            g2D.drawString(scoreText, x, y);
+
+        }
     }
 
     public int getXonCenter(String text) {

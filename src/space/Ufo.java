@@ -16,6 +16,7 @@ public class Ufo extends SpaceObjects{
     GameFrame game;
     Random random;
     BufferedImage[] spark;
+    private Timer bombDropTimer;
 
     private int frameCount = 0;
     private int sprite = 1;
@@ -28,16 +29,6 @@ public class Ufo extends SpaceObjects{
         this.game = game;
 
         random = new Random();
-        // drop bomb in every 10 second
-        Timer bombDropTimer = new Timer();
-        bombDropTimer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                dropBomb();
-            }
-        }, 0, 10000); // 20,000 milliseconds = 20 seconds
-
-
 
         // ufo x direction
         int randomXDirection = random.nextInt(2);
@@ -53,7 +44,7 @@ public class Ufo extends SpaceObjects{
             randomYDirection--;
         setYDirection(randomYDirection * speed);
 
-
+        getBomb();
         getUfoImg();
     }
 
@@ -103,8 +94,8 @@ public class Ufo extends SpaceObjects{
 
         if (!isExploded) {
 
-            x += xVelocity;
-            y += yVelocity;
+            x += (int) xVelocity;
+            y += (int) yVelocity;
         } else {
             frameCount++;
 
@@ -112,6 +103,28 @@ public class Ufo extends SpaceObjects{
                 frameCount = 0;
                 sprite = (sprite % spark.length) + 1;
             }
+        }
+    }
+
+    public void getBomb() {
+
+        if (!isDead && game.gameState == game.play) {
+
+            // drop bomb in every 10 second
+            bombDropTimer = new Timer();
+            bombDropTimer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
+                    dropBomb();
+                }
+            }, 0, 10000); // 10,000 milliseconds = 10 seconds
+        }
+    }
+
+    public void cancelBombTimer() {
+        if (bombDropTimer != null) {
+            bombDropTimer.cancel();
+            bombDropTimer.purge();
         }
     }
 
@@ -129,8 +142,9 @@ public class Ufo extends SpaceObjects{
 
     public void dropBomb() {
 
-        if (!isExploded && game.gameState == game.play)
+        if (game.gameState == game.play && !isDead) {
             game.getBombs().add(new Bomb(getX(), getY(), width, height, 111, 333, 0, this));
+        }
     }
 
     public void draw(Graphics2D g2D) {
@@ -149,6 +163,7 @@ public class Ufo extends SpaceObjects{
             deathCount++;
 
             if (deathCount >= 12) {
+                cancelBombTimer();
                 isDead = true;
             }
         }

@@ -83,8 +83,8 @@ public class Bomb extends SpaceObjects {
 
         if (!isExploded) {
 
-            double gravity = 0.6; // how fast the bomb will get down
-            double timeStep = 0.3; // how fast the bomb will travel
+            double gravity = 0.5; // how fast the bomb will get down
+            double timeStep = 0.3; // how far the bomb will travel
             time += timeStep;
 
             // check if the x-velocity has already been set
@@ -104,14 +104,14 @@ public class Bomb extends SpaceObjects {
             yVelocity += gravity * timeStep;
 
             frameCounter++;
-            if (frameCounter > 2) {
+            if (frameCounter > 1) {
                 frameCounter = 0;
                 sprite = (sprite % bombImg.length) +1;
             }
         }
         else {
             explosionCounter++;
-            if (explosionCounter > 5) {
+            if (explosionCounter >= 5) {
                 explosionCounter = 0;
                 explosionSprite = (explosionSprite % explosion.length) + 1;
             }
@@ -126,14 +126,14 @@ public class Bomb extends SpaceObjects {
         if (x >= ufo.game.screenWidth + width) {
             isDead = true;
         }
-        if (y >= ufo.game.screenHeight - height) {
-            isExploded = true;
+        if (y >= ufo.game.screenHeight) {
+            isDead = true;
         }
     }
 
     public void draw(Graphics2D g2D) {
 
-        BufferedImage image = null;
+        BufferedImage image;
 
         if (!isExploded) {
 
@@ -149,6 +149,7 @@ public class Bomb extends SpaceObjects {
 
             deathCount++;
             // highest frame count x4;
+
             if (deathCount >= 40){
                 isDead = true;
             }

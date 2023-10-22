@@ -10,10 +10,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="141d667a-6ba6-42dc-8466-178da7f5c559" name="Changes" comment="- changed game assets&#10;- modified UFO &amp; Bomb behaviour">
+      <change afterPath="$PROJECT_DIR$/config.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/asteroid/asteroid6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/asteroid/asteroid7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/asteroid/asteroid8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sound/click.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sound/scroll.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sound/volume.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/astronaut.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/heart1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/space/heart2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/ufo/ufo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Asteroid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/space/Asteroid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/space/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Rocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/space/Rocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/SpaceObjects.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/space/SpaceObjects.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Spaceship.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/space/Spaceship.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Space/Ufo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/space/Ufo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BackgroundSlideshow.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/GameSound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GameSound.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +66,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2VFlNaF4j4XoDuG3Ym76BWGtBMd" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -52,23 +77,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/SUCCESS/IdeaProjects/Java Clock App&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.1764706&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/siddi/IdeaProjects/Space-Shooter",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.1764706",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\SUCCESS\IdeaProjects\Space Shooter\.idea" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JAR Application.Space Shooter.jar">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="Space Shooter" />
@@ -88,8 +116,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JAR Application.Space Shooter.jar" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -182,6 +210,10 @@
     <MESSAGE value="- made the game fullscreen&#10;- slight changes in UI class" />
     <MESSAGE value="- changed game assets&#10;- modified UFO &amp; Bomb behaviour" />
     <option name="LAST_COMMIT_MESSAGE" value="- changed game assets&#10;- modified UFO &amp; Bomb behaviour" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Space_Shooter$Space_Shooter_jar.ic" NAME="Space Shooter.jar Coverage Results" MODIFIED="1694355737454" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

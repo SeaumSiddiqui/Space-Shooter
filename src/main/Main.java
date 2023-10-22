@@ -16,6 +16,7 @@ public class Main {
 
         GameFrame gamePanel = new GameFrame();
         window.add(gamePanel);
+        gamePanel.config.loadConfig();
         window.pack();
 
         window.setLocationRelativeTo(null);

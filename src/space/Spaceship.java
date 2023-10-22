@@ -77,6 +77,7 @@ public class Spaceship extends SpaceObjects {
         if (health <= 0) {
             isDead = true;
             game.gameState = game.gameOver;
+            game.stopMusic();
         }
     }
 

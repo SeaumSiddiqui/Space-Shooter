@@ -7,7 +7,7 @@ public class SpaceObjects {
 
     // default
     public int x, y;
-    public int width, height = 64;
+    public int width, height;
     double xVelocity, yVelocity;
     public int health;
     public int damage;
@@ -34,8 +34,8 @@ public class SpaceObjects {
     BufferedImage rocketY1, rocketY2, rocketY3, rocketY4, rocketY5, rocketY6;
 
     // bomb
-    BufferedImage bombUp, bombDown, bombLeft, bombRight, bombUpLeft, bombUpRight, bombDownLeft, bombDownRight,
-                  explosion1, explosion2, explosion3, explosion4, explosion5, explosion6, explosion7, explosion8,
+    BufferedImage explosion1, explosion2, explosion3, explosion4,
+                  explosion5, explosion6, explosion7, explosion8,
                   bombLeft1, bombLeft2, bombRight1, bombRight2  ;
 
 
@@ -44,7 +44,8 @@ public class SpaceObjects {
     BufferedImage spark1, spark2, spark3, spark4;
 
     // asteroid
-    BufferedImage asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, asteroidImg5, asteroidImg6,
+    BufferedImage asteroidImg1, asteroidImg2, asteroidImg3, asteroidImg4, 
+                  asteroidImg5, asteroidImg6, asteroidImg7, asteroidImg8,
                   hit1, hit2, hit3, hit4, hit5, hit6, hit7, hit8;
 
     public int getX() {
@@ -63,38 +64,6 @@ public class SpaceObjects {
         this.y = y;
     }
 
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
-    }
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public double getXVelocity() {
-        return xVelocity;
-    }
-
-    public void setXVelocity(int xVelocity) {
-        this.xVelocity = xVelocity;
-    }
-
-    public double getYVelocity() {
-        return yVelocity;
-    }
-
-    public void setYVelocity(int yVelocity) {
-        this.yVelocity = yVelocity;
-    }
-
     public int getHealth() {
         return health;
     }
@@ -111,22 +80,12 @@ public class SpaceObjects {
         this.damage = damage;
     }
 
-
     public int getSpeed() {
         return speed;
     }
 
     public void setSpeed(int speed) {
         this.speed = speed;
-    }
-
-    public int getRadius() {
-        //radius = Math.max(width, height) / 2;
-        return radius;
-    }
-
-    public void setRadius(int radius) {
-        this.radius = radius;
     }
 
     public void takeDamage(int damage) {
@@ -145,14 +104,6 @@ public class SpaceObjects {
 
     public void setDead(boolean dead) {
         isDead = dead;
-    }
-
-    public boolean isExploded() {
-        return isExploded;
-    }
-
-    public void setExploded(boolean exploded) {
-        isExploded = exploded;
     }
 
     public void move() {

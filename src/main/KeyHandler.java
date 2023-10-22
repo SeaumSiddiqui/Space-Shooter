@@ -42,12 +42,16 @@ public class KeyHandler implements KeyListener {
 
             // move the cursor around
             if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
+
+                game.playSE(5);
                 commandNum--;
                 if (commandNum < 0) {
                     commandNum = 2;
                 }
             }
             if (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
+
+                game.playSE(5);
                 commandNum++;
                 if (commandNum > 2) {
                     commandNum = 0;
@@ -55,13 +59,15 @@ public class KeyHandler implements KeyListener {
             }
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 if (commandNum == 0) {
-                    game.gameState = game.play;
+                    game.playSE(7);
                     game.playMusic(0);
+                    game.gameState = game.play;
                 }
                 if (commandNum == 1) {
-                    System.out.println("later");
+                    game.playSE(7);
                 }
                 if (commandNum == 2) {
+                    game.playSE(7);
                     System.exit(0);
                 }
             }
@@ -71,9 +77,11 @@ public class KeyHandler implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 
             if (game.gameState == game.play) {
+                game.playSE(7);
                 game.gameState = game.option;
             }
             else if (game.gameState == game.option) {
+                game.playSE(7);
                 game.gameState = game.play;
             }
         }
@@ -81,12 +89,16 @@ public class KeyHandler implements KeyListener {
         if (game.gameState == game.option) {
             // move the cursor around
             if (e.getKeyCode() == KeyEvent.VK_W || e.getKeyCode() == KeyEvent.VK_UP) {
+
+                game.playSE(5);
                 commandNum--;
                 if (commandNum < 0) {
                     commandNum = 3;
                 }
             }
             if (e.getKeyCode() == KeyEvent.VK_S || e.getKeyCode() == KeyEvent.VK_DOWN) {
+
+                game.playSE(5);
                 commandNum++;
                 if (commandNum > 3) {
                     commandNum = 0;
@@ -96,11 +108,13 @@ public class KeyHandler implements KeyListener {
             // increase volume
             if (e.getKeyCode() == KeyEvent.VK_PAGE_UP) {
                 // music volume
-                if (commandNum == 0 && game.music.volumeScale < 5) {
+                if (commandNum == 0 && game.music.volumeScale < 10) {
+                    game.playSE(6);
                     game.music.volumeScale++;
                     game.music.checkVolume();
                 }// effect volume
-                if (commandNum == 1 && game.effect.volumeScale < 5) {
+                if (commandNum == 1 && game.effect.volumeScale < 10) {
+                    game.playSE(6);
                     game.effect.volumeScale++;
                 }
             }
@@ -109,22 +123,26 @@ public class KeyHandler implements KeyListener {
             if (e.getKeyCode() == KeyEvent.VK_PAGE_DOWN) {
                 // music volume
                 if (commandNum == 0 && game.music.volumeScale > 0) {
+                    game.playSE(6);
                     game.music.volumeScale--;
                     game.music.checkVolume();
                 }// effect volume
                 if (commandNum == 1 && game.effect.volumeScale > 0) {
+                    game.playSE(6);
                     game.effect.volumeScale--;
                 }
             }
 
-            // quit from game
-            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                // main menu
                 if (commandNum == 2) {
+                    game.playSE(7);
                     game.music.stop();
                     game.gameState = game.titleState;
-                }
+                }// quit game
                 if (commandNum == 3) {
+                    game.playSE(7);
                     System.exit(0);
                 }
             }
@@ -134,10 +152,12 @@ public class KeyHandler implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_P) {
 
             if (game.gameState == game.play) {
+                game.playSE(7);
                 game.stopMusic();
                 game.gameState = game.pause;
             }
             else if (game.gameState == game.pause) {
+                game.playSE(7);
                 game.playMusic(0);
                 game.gameState = game.play;
             }
@@ -146,8 +166,10 @@ public class KeyHandler implements KeyListener {
         // game over state
         if (game.gameState == game.gameOver) {
 
+            game.stopMusic();
             // restart game
             if (e.getKeyCode() == KeyEvent.VK_R) {
+                game.playSE(7);
                 game.restart();
                 game.gameState = game.play;
             }
@@ -181,11 +203,6 @@ public class KeyHandler implements KeyListener {
         if (e.getKeyCode() == KeyEvent.VK_J) {
             rocketFireY = true;
             lastYFireTime = System.currentTimeMillis();
-        }
-
-        // temp
-        if (e.getKeyCode() == KeyEvent.VK_M) {
-            game.stopMusic();
         }
     }
 
