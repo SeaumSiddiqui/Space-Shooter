@@ -17,8 +17,8 @@ public class GameFrame extends JPanel implements Runnable {
     public int screenWidth = tileSize * maxScreenCol; // 1024px initial
     public int screenHeight = tileSize * maxScreenRow; // 640px initial
     public final int FPS = 60; // 60 frames per second
-    public double score;
-    public double highestScore;
+    public double score = 0;
+    public double highestScore = 0;
 
     // game state
     public int gameState;
@@ -273,22 +273,20 @@ public class GameFrame extends JPanel implements Runnable {
         super.paintComponent(g);
         Graphics2D g2D = ((Graphics2D) g);
 
-            // draw background
-            slideshow.draw(g2D);
-            // draw spaceship
-            ship.drawSpaceship(g2D);
-            // draw other game objects
-            for (SpaceObjects object : getObjects()) {
-
-                try {
-                    object.draw(g2D);
-                } catch (Exception e) {
-                    System.out.println("error: " + e);
-                }
+        // draw background
+        slideshow.draw(g2D);
+        // draw ui
+        ui.drawUI(g2D);
+        // draw spaceship
+        ship.drawSpaceship(g2D);
+        // draw other game objects
+        for (SpaceObjects object : getObjects()) {
+            try {
+                object.draw(g2D);
+            } catch (Exception e) {
+                System.out.println("error: " + e);
             }
-
-            // draw ui
-            ui.drawUI(g2D);
+        }
 
         // ensure pending graphics operations are completed
         Toolkit.getDefaultToolkit().sync();

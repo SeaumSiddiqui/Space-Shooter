@@ -1,10 +1,14 @@
 package main;
 
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Config {
 
     GameFrame game;
+    private final String configFileName = "config.txt";
 
     Config(GameFrame game) {
         this.game = game;
@@ -13,8 +17,9 @@ public class Config {
     public void saveConfig() {
 
         try {
+            Path configFilePath = Paths.get(System.getProperty("user.home"), configFileName);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(configFilePath.toString()));
 
-            BufferedWriter bw = new BufferedWriter(new FileWriter("config.txt"));
 
             // highest score
             bw.write(String.valueOf(game.highestScore));
@@ -37,24 +42,28 @@ public class Config {
 
     public void loadConfig() {
 
+
+
         try {
+            Path configFilePath = Paths.get(System.getProperty("user.home"), configFileName);
 
-            BufferedReader br = new BufferedReader(new FileReader("config.txt"));
+            if (Files.exists(configFilePath)) {
+                BufferedReader br = new BufferedReader(new FileReader(configFilePath.toString()));
 
-            // highest score
-            String s = br.readLine();
-            game.highestScore = Double.parseDouble(s);
+                // highest score
+                String s = br.readLine();
+                game.highestScore = Double.parseDouble(s);
 
-            // music volume
-            s = br.readLine();
-            game.music.volumeScale = Integer.parseInt(s);
+                // music volume
+                s = br.readLine();
+                game.music.volumeScale = Integer.parseInt(s);
 
-            // effect volume
-            s = br.readLine();
-            game.effect.volumeScale = Integer.parseInt(s);
+                // effect volume
+                s = br.readLine();
+                game.effect.volumeScale = Integer.parseInt(s);
 
-            br.close();
-
+                br.close();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

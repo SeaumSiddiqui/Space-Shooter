@@ -9,7 +9,7 @@ public class GameSound {
     Clip clip;
     URL[] soundUrl = new URL[8];
     FloatControl fc;
-    public int volumeScale = 3;
+    public int volumeScale = 5;
     float volume;
 
     public GameSound(){

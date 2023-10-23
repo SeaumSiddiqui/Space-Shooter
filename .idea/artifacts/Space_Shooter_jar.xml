@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Space Shooter:jar">
+    <output-path>$USER_HOME$/Desktop</output-path>
+    <root id="archive" name="Space Shooter.jar">
+      <element id="module-output" name="Space Shooter" />
+    </root>
+  </artifact>
+</component>
